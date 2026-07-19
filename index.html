@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sean Harrison — Architecture, Interior &amp; Design</title>
+<meta name="description" content="Sean Harrison is an independent architecture practice delivering residential, institutional and cultural projects across Europe, the Americas and the Caribbean.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-home">
+
+<div class="password-gate" id="passwordGate">
+  <form class="gate-form" id="gateForm">
+    <p class="gate-logo">SEAN HARRISON</p>
+    <label class="eyebrow gate-label" for="gatePassword">Enter Password</label>
+    <input type="password" id="gatePassword" class="gate-input" autocomplete="current-password" required>
+    <button type="submit" class="link-arrow gate-submit">Enter</button>
+    <p class="gate-error" id="gateError">Incorrect password. Please try again.</p>
+  </form>
+</div>
+
+<header class="site-header" id="siteHeader" style="color:var(--paper);">
+  <div class="header-inner">
+    <a href="index.html" class="logo-mark">
+      <span class="logo-name">SEAN HARRISON</span>
+    </a>
+    <nav class="nav-links">
+      <a href="work.html">Projects</a>
+    </nav>
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="studio.html">Studio</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="work.html">Projects</a>
+  <a href="studio.html">Studio</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<main>
+  <section class="hero-slideshow">
+    <div class="hero-slide is-active" style="background-image:url('assets/images/scraped/01_Menorca-1-1.webp');"></div>
+    <div class="hero-slide" style="background-image:url('assets/images/custom/mallorca-interior-02.png');"></div>
+    <div class="hero-slide" style="background-image:url('assets/images/scraped/Portada_Punta-del-Este.webp');"></div>
+    <div class="hero-slide" style="background-image:url('assets/images/scraped/02_Paseo-de-la-Habana.webp');"></div>
+    <div class="hero-scrim"></div>
+    <div class="scroll-cue" aria-hidden="true">
+      <svg width="15" height="24" viewBox="0 0 16 26" fill="none"><path d="M8 0V25M8 25L1 18M8 25L15 18" stroke="currentColor" stroke-width="1"/></svg>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-col">
+      <span class="logo-name">SEAN HARRISON</span>
+      <p style="margin-top:10px; opacity:0.6;">Architecture &middot; Interior &middot; Design</p>
+    </div>
+    <div class="footer-col">
+      <p>Buenos Aires, Argentina</p>
+      <p><a href="mailto:hello@seanharrison.studio" class="link-arrow" style="padding-bottom:0;">hello@seanharrison.studio</a></p>
+    </div>
+    <div class="footer-col">
+      <p><a href="studio.html">Studio</a></p>
+      <p><a href="contact.html">Contact</a></p>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>&copy; 2026 Sean Harrison</span>
+    <span>Architecture &middot; Interior &middot; Design</span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

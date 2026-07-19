@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work — Sean Harrison</title>
+<meta name="description" content="Selected architecture and interior projects by Sean Harrison across Europe, the Americas and the Caribbean.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="password-gate" id="passwordGate">
+  <form class="gate-form" id="gateForm">
+    <p class="gate-logo">SEAN HARRISON</p>
+    <label class="eyebrow gate-label" for="gatePassword">Enter Password</label>
+    <input type="password" id="gatePassword" class="gate-input" autocomplete="current-password" required>
+    <button type="submit" class="link-arrow gate-submit">Enter</button>
+    <p class="gate-error" id="gateError">Incorrect password. Please try again.</p>
+  </form>
+</div>
+
+<header class="site-header is-solid" id="siteHeader">
+  <div class="header-inner">
+    <a href="index.html" class="logo-mark">
+      <span class="logo-name">SEAN HARRISON</span>
+    </a>
+    <nav class="nav-links">
+      <a href="work.html" class="is-active">Projects</a>
+    </nav>
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="studio.html">Studio</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="work.html">Projects</a>
+  <a href="studio.html">Studio</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<main class="wrap" style="padding-top:calc(88px + 3rem); padding-bottom:5rem;">
+  <div class="reveal" style="display:flex; justify-content:flex-end; align-items:center; margin-bottom:2.5rem;">
+    <div class="view-toggle">
+      <button data-view="grid" class="is-active" aria-label="Grid view">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="1" width="7" height="7" stroke="currentColor"/><rect x="10" y="1" width="7" height="7" stroke="currentColor"/><rect x="1" y="10" width="7" height="7" stroke="currentColor"/><rect x="10" y="10" width="7" height="7" stroke="currentColor"/></svg>
+      </button>
+      <button data-view="list" aria-label="List view">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><line x1="1" y1="3" x2="17" y2="3" stroke="currentColor"/><line x1="1" y1="9" x2="17" y2="9" stroke="currentColor"/><line x1="1" y1="15" x2="17" y2="15" stroke="currentColor"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="gallery-grid reveal reveal-delay-1">
+    <a href="projects/mallorca.html" class="gallery-item">
+      <img src="assets/images/scraped/15_mallorca.webp" alt="Villa Mallorca" loading="lazy">
+      <span class="gallery-caption"><span class="gc-title">Villa Mallorca</span><br><span class="gc-meta">Mallorca, Spain &middot; 2024</span></span>
+    </a>
+    <a href="projects/punta-cana.html" class="gallery-item">
+      <img src="assets/images/scraped/Portada_Punta-del-Este.webp" alt="Villa Punta Cana" loading="lazy">
+      <span class="gallery-caption"><span class="gc-title">Villa Punta Cana</span><br><span class="gc-meta">Punta Cana, Dominican Republic &middot; 2023</span></span>
+    </a>
+    <a href="projects/madrid.html" class="gallery-item">
+      <img src="assets/images/scraped/02_Paseo-de-la-Habana.webp" alt="Luxury Apartment, Madrid" loading="lazy">
+      <span class="gallery-caption"><span class="gc-title">Luxury Apartment</span><br><span class="gc-meta">Madrid, Spain &middot; 2023</span></span>
+    </a>
+    <a href="projects/bordeaux.html" class="gallery-item">
+      <img src="assets/images/scraped/03_El-Encinar.webp" alt="Château &amp; Winery, Bordeaux" loading="lazy">
+      <span class="gallery-caption"><span class="gc-title">Château &amp; Winery</span><br><span class="gc-meta">Bordeaux, France &middot; 2018</span></span>
+    </a>
+    <a href="projects/missouri.html" class="gallery-item" style="background:var(--stone);">
+      <svg width="100%" height="100%" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" style="position:absolute; inset:0;">
+        <rect x="40" y="180" width="320" height="220" class="plate-line"/>
+        <line x1="40" y1="180" x2="40" y2="400" class="plate-line"/>
+        <line x1="105" y1="180" x2="105" y2="400" class="plate-line"/>
+        <line x1="170" y1="180" x2="170" y2="400" class="plate-line"/>
+        <line x1="235" y1="180" x2="235" y2="400" class="plate-line"/>
+        <line x1="300" y1="180" x2="300" y2="400" class="plate-line"/>
+        <line x1="40" y1="180" x2="200" y2="90" class="plate-line"/>
+        <line x1="360" y1="180" x2="200" y2="90" class="plate-line"/>
+      </svg>
+      <span class="gallery-caption"><span class="gc-title">Middle School</span><br><span class="gc-meta">Missouri, United States &middot; 2020</span></span>
+    </a>
+    <a href="projects/buenos-aires.html" class="gallery-item">
+      <img src="assets/images/scraped/buenosaires.webp" alt="Apartment Building, Buenos Aires" loading="lazy">
+      <span class="gallery-caption"><span class="gc-title">Apartment Building</span><br><span class="gc-meta">Buenos Aires, Argentina &middot; 2016</span></span>
+    </a>
+    <div class="gallery-item is-soon">
+      <span class="soon-label">More Work<br>Coming Soon</span>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-col">
+      <span class="logo-name">SEAN HARRISON</span>
+      <p style="margin-top:10px; opacity:0.6;">Architecture &middot; Interior &middot; Design</p>
+    </div>
+    <div class="footer-col">
+      <p>Buenos Aires, Argentina</p>
+      <p><a href="mailto:hello@seanharrison.studio" class="link-arrow" style="padding-bottom:0;">hello@seanharrison.studio</a></p>
+    </div>
+    <div class="footer-col">
+      <p><a href="studio.html">Studio</a></p>
+      <p><a href="contact.html">Contact</a></p>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>&copy; 2026 Sean Harrison</span>
+    <span>Architecture &middot; Interior &middot; Design</span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
