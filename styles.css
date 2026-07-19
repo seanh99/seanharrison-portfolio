@@ -335,12 +335,22 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
   letter-spacing:0.22em; margin-bottom:2.5rem;
 }
 .gate-label{ display:block; margin-bottom:0.9rem; opacity:0.55; }
+.gate-input-wrap{ position:relative; }
 .gate-input{
   width:100%; border:none; border-bottom:1px solid rgba(17,17,17,0.25);
-  background:transparent; padding:0.6rem 0; font-family:'Work Sans', sans-serif;
+  background:transparent; padding:0.6rem 1.75rem 0.6rem 0; font-family:'Work Sans', sans-serif;
   font-size:1rem; text-align:center; letter-spacing:0.05em; color:var(--charcoal);
 }
 .gate-input:focus{ outline:none; border-color:var(--charcoal); }
+.gate-toggle{
+  position:absolute; right:0; top:0; bottom:1px;
+  display:flex; align-items:center; justify-content:center; width:1.75rem;
+  color:var(--charcoal); opacity:0.45; transition:opacity .25s ease;
+}
+.gate-toggle:hover{ opacity:0.85; }
+.gate-toggle .icon-eye-off{ display:none; }
+.gate-toggle.is-showing .icon-eye{ display:none; }
+.gate-toggle.is-showing .icon-eye-off{ display:block; }
 .gate-submit{ margin-top:1.75rem; }
 .gate-error{
   display:none; margin-top:1.1rem; font-size:0.78rem; letter-spacing:0.04em; color:#a3392f;

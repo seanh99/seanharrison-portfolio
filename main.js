@@ -12,7 +12,7 @@ const GATE_STORAGE_KEY = 'sh_site_unlocked';
   const gate = document.getElementById('passwordGate');
   if (!gate) return;
 
-  if (localStorage.getItem(GATE_STORAGE_KEY) === '1'){
+  if (sessionStorage.getItem(GATE_STORAGE_KEY) === '1'){
     gate.remove();
     return;
   }
@@ -21,11 +21,22 @@ const GATE_STORAGE_KEY = 'sh_site_unlocked';
   const form = document.getElementById('gateForm');
   const input = document.getElementById('gatePassword');
   const error = document.getElementById('gateError');
+  const toggle = document.getElementById('gateToggle');
+
+  if (toggle){
+    toggle.addEventListener('click', () => {
+      const showing = input.type === 'text';
+      input.type = showing ? 'password' : 'text';
+      toggle.classList.toggle('is-showing', !showing);
+      toggle.setAttribute('aria-label', showing ? 'Show password' : 'Hide password');
+      input.focus({ preventScroll: true });
+    });
+  }
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     if (input.value === SITE_PASSWORD){
-      localStorage.setItem(GATE_STORAGE_KEY, '1');
+      sessionStorage.setItem(GATE_STORAGE_KEY, '1');
       document.documentElement.style.overflow = '';
       gate.remove();
     } else {
