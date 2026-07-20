@@ -15,7 +15,7 @@
 <div class="password-gate" id="passwordGate">
   <form class="gate-form" id="gateForm">
     <p class="gate-logo">SEAN HARRISON</p>
-    <label class="eyebrow gate-label" for="gatePassword">Enter Password</label>
+    <label class="eyebrow gate-label" for="gatePassword">Portfolio Access</label>
     <div class="gate-input-wrap">
       <input type="password" id="gatePassword" class="gate-input" autocomplete="current-password" required>
       <button type="button" class="gate-toggle" id="gateToggle" aria-label="Show password">
@@ -38,7 +38,7 @@
     </nav>
     <div class="nav-right">
       <nav class="nav-links">
-        <a href="studio.html">Studio</a>
+        <a href="profile.html">Profile</a>
         <a href="contact.html">Contact</a>
       </nav>
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
@@ -51,19 +51,43 @@
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
   <a href="work.html">Projects</a>
-  <a href="studio.html">Studio</a>
+  <a href="profile.html">Profile</a>
   <a href="contact.html">Contact</a>
 </div>
 
 <main>
-  <section class="hero-slideshow">
-    <div class="hero-slide is-active" style="background-image:url('assets/images/scraped/01_Menorca-1-1.webp');"></div>
-    <div class="hero-slide" style="background-image:url('assets/images/custom/mallorca-interior-02.png');"></div>
-    <div class="hero-slide" style="background-image:url('assets/images/scraped/Portada_Punta-del-Este.webp');"></div>
-    <div class="hero-slide" style="background-image:url('assets/images/scraped/02_Paseo-de-la-Habana.webp');"></div>
-    <div class="hero-scrim"></div>
-    <div class="scroll-cue" aria-hidden="true">
-      <svg width="15" height="24" viewBox="0 0 16 26" fill="none"><path d="M8 0V25M8 25L1 18M8 25L15 18" stroke="currentColor" stroke-width="1"/></svg>
+  <section class="hero-stage" id="heroStage">
+    <button class="hero-nav-zone is-prev" aria-label="Previous image"></button>
+    <button class="hero-nav-zone is-next" aria-label="Next image"></button>
+
+    <div class="hero-slide is-active" data-format="panoramic" data-caption="Villa Mallorca, Spain">
+      <img src="assets/images/scraped/15_mallorca.webp" alt="Villa Mallorca, Spain">
+    </div>
+    <div class="hero-slide" data-format="horizontal" data-caption="Villa Punta Cana, Dominican Republic">
+      <img src="assets/images/scraped/Portada_Punta-del-Este.webp" alt="Villa Punta Cana, Dominican Republic">
+    </div>
+    <div class="hero-slide" data-format="vertical" data-caption="Villa Mallorca, Spain">
+      <img src="assets/images/custom/mallorca-interior-01.png" alt="Villa Mallorca, Spain — interior">
+    </div>
+    <div class="hero-slide" data-format="horizontal" data-caption="Luxury Apartment, Madrid">
+      <img src="assets/images/scraped/02_Paseo-de-la-Habana.webp" alt="Luxury Apartment, Madrid">
+    </div>
+    <div class="hero-slide" data-format="horizontal" data-caption="Ch&acirc;teau &amp; Winery, Bordeaux">
+      <img src="assets/images/scraped/03_El-Encinar.webp" alt="Ch&acirc;teau &amp; Winery, Bordeaux">
+    </div>
+    <div class="hero-slide" data-format="vertical" data-caption="Villa Mallorca, Spain">
+      <img src="assets/images/custom/mallorca-interior-02.png" alt="Villa Mallorca, Spain — interior">
+    </div>
+    <div class="hero-slide" data-format="horizontal" data-caption="Apartment Building, Buenos Aires">
+      <img src="assets/images/scraped/buenosaires.webp" alt="Apartment Building, Buenos Aires">
+    </div>
+    <div class="hero-slide" data-format="horizontal" data-caption="Villa Mallorca, Spain">
+      <img src="assets/images/scraped/01_Menorca-1-1.webp" alt="Villa Mallorca, Spain">
+    </div>
+
+    <div class="hero-caption">
+      <span id="heroCaptionTitle"></span>
+      <span id="heroCaptionIndex"></span>
     </div>
   </section>
 </main>
@@ -72,20 +96,21 @@
   <div class="wrap footer-top">
     <div class="footer-col">
       <span class="logo-name">SEAN HARRISON</span>
-      <p style="margin-top:10px; opacity:0.6;">Architecture &middot; Interior &middot; Design</p>
+      <p style="margin-top:10px; opacity:0.6;">Architect &middot; Project Lead</p>
     </div>
     <div class="footer-col">
-      <p>Buenos Aires, Argentina</p>
-      <p><a href="mailto:hello@seanharrison.studio" class="link-arrow" style="padding-bottom:0;">hello@seanharrison.studio</a></p>
+      <p>Madrid, Spain</p>
+      <p><a href="mailto:seanharrison.coelho@gmail.com" class="link-arrow" style="padding-bottom:0;">seanharrison.coelho@gmail.com</a></p>
     </div>
     <div class="footer-col">
-      <p><a href="studio.html">Studio</a></p>
+      <p><a href="profile.html">Profile</a></p>
       <p><a href="contact.html">Contact</a></p>
+      <p><a href="https://www.linkedin.com/in/sharrison92/" class="link-arrow" style="padding-bottom:0;" target="_blank" rel="noopener">LinkedIn</a></p>
     </div>
   </div>
   <div class="wrap footer-bottom">
     <span>&copy; 2026 Sean Harrison</span>
-    <span>Architecture &middot; Interior &middot; Design</span>
+    <a href="#" id="lockPortfolio" style="opacity:0.8;">Lock portfolio</a>
   </div>
 </footer>
 

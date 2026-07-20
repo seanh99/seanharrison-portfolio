@@ -15,7 +15,7 @@
 <div class="password-gate" id="passwordGate">
   <form class="gate-form" id="gateForm">
     <p class="gate-logo">SEAN HARRISON</p>
-    <label class="eyebrow gate-label" for="gatePassword">Enter Password</label>
+    <label class="eyebrow gate-label" for="gatePassword">Portfolio Access</label>
     <div class="gate-input-wrap">
       <input type="password" id="gatePassword" class="gate-input" autocomplete="current-password" required>
       <button type="button" class="gate-toggle" id="gateToggle" aria-label="Show password">
@@ -38,7 +38,7 @@
     </nav>
     <div class="nav-right">
       <nav class="nav-links">
-        <a href="studio.html">Studio</a>
+        <a href="profile.html">Profile</a>
         <a href="contact.html">Contact</a>
       </nav>
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
@@ -51,7 +51,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
   <a href="work.html">Projects</a>
-  <a href="studio.html">Studio</a>
+  <a href="profile.html">Profile</a>
   <a href="contact.html">Contact</a>
 </div>
 
@@ -69,36 +69,48 @@
 
   <div class="gallery-grid reveal reveal-delay-1">
     <a href="projects/mallorca.html" class="gallery-item">
-      <img src="assets/images/scraped/15_mallorca.webp" alt="Villa Mallorca" loading="lazy">
+      <div class="gallery-item-media">
+        <img src="assets/images/scraped/15_mallorca.webp" alt="Villa Mallorca" loading="lazy">
+      </div>
       <span class="gallery-caption"><span class="gc-title">Villa Mallorca</span><br><span class="gc-meta">Mallorca, Spain &middot; 2024</span></span>
     </a>
     <a href="projects/punta-cana.html" class="gallery-item">
-      <img src="assets/images/scraped/Portada_Punta-del-Este.webp" alt="Villa Punta Cana" loading="lazy">
+      <div class="gallery-item-media">
+        <img src="assets/images/scraped/Portada_Punta-del-Este.webp" alt="Villa Punta Cana" loading="lazy">
+      </div>
       <span class="gallery-caption"><span class="gc-title">Villa Punta Cana</span><br><span class="gc-meta">Punta Cana, Dominican Republic &middot; 2023</span></span>
     </a>
     <a href="projects/madrid.html" class="gallery-item">
-      <img src="assets/images/scraped/02_Paseo-de-la-Habana.webp" alt="Luxury Apartment, Madrid" loading="lazy">
+      <div class="gallery-item-media">
+        <img src="assets/images/scraped/02_Paseo-de-la-Habana.webp" alt="Luxury Apartment, Madrid" loading="lazy">
+      </div>
       <span class="gallery-caption"><span class="gc-title">Luxury Apartment</span><br><span class="gc-meta">Madrid, Spain &middot; 2023</span></span>
     </a>
     <a href="projects/bordeaux.html" class="gallery-item">
-      <img src="assets/images/scraped/03_El-Encinar.webp" alt="Château &amp; Winery, Bordeaux" loading="lazy">
+      <div class="gallery-item-media">
+        <img src="assets/images/scraped/03_El-Encinar.webp" alt="Château &amp; Winery, Bordeaux" loading="lazy">
+      </div>
       <span class="gallery-caption"><span class="gc-title">Château &amp; Winery</span><br><span class="gc-meta">Bordeaux, France &middot; 2018</span></span>
     </a>
-    <a href="projects/missouri.html" class="gallery-item" style="background:var(--stone);">
-      <svg width="100%" height="100%" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" style="position:absolute; inset:0;">
-        <rect x="40" y="180" width="320" height="220" class="plate-line"/>
-        <line x1="40" y1="180" x2="40" y2="400" class="plate-line"/>
-        <line x1="105" y1="180" x2="105" y2="400" class="plate-line"/>
-        <line x1="170" y1="180" x2="170" y2="400" class="plate-line"/>
-        <line x1="235" y1="180" x2="235" y2="400" class="plate-line"/>
-        <line x1="300" y1="180" x2="300" y2="400" class="plate-line"/>
-        <line x1="40" y1="180" x2="200" y2="90" class="plate-line"/>
-        <line x1="360" y1="180" x2="200" y2="90" class="plate-line"/>
-      </svg>
+    <a href="projects/missouri.html" class="gallery-item">
+      <div class="gallery-item-media" style="background:var(--stone);">
+        <svg width="100%" height="100%" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" style="position:absolute; inset:0;">
+          <rect x="40" y="180" width="320" height="220" class="plate-line"/>
+          <line x1="40" y1="180" x2="40" y2="400" class="plate-line"/>
+          <line x1="105" y1="180" x2="105" y2="400" class="plate-line"/>
+          <line x1="170" y1="180" x2="170" y2="400" class="plate-line"/>
+          <line x1="235" y1="180" x2="235" y2="400" class="plate-line"/>
+          <line x1="300" y1="180" x2="300" y2="400" class="plate-line"/>
+          <line x1="40" y1="180" x2="200" y2="90" class="plate-line"/>
+          <line x1="360" y1="180" x2="200" y2="90" class="plate-line"/>
+        </svg>
+      </div>
       <span class="gallery-caption"><span class="gc-title">Middle School</span><br><span class="gc-meta">Missouri, United States &middot; 2020</span></span>
     </a>
     <a href="projects/buenos-aires.html" class="gallery-item">
-      <img src="assets/images/scraped/buenosaires.webp" alt="Apartment Building, Buenos Aires" loading="lazy">
+      <div class="gallery-item-media">
+        <img src="assets/images/scraped/buenosaires.webp" alt="Apartment Building, Buenos Aires" loading="lazy">
+      </div>
       <span class="gallery-caption"><span class="gc-title">Apartment Building</span><br><span class="gc-meta">Buenos Aires, Argentina &middot; 2016</span></span>
     </a>
     <div class="gallery-item is-soon">
@@ -111,20 +123,21 @@
   <div class="wrap footer-top">
     <div class="footer-col">
       <span class="logo-name">SEAN HARRISON</span>
-      <p style="margin-top:10px; opacity:0.6;">Architecture &middot; Interior &middot; Design</p>
+      <p style="margin-top:10px; opacity:0.6;">Architect &middot; Project Lead</p>
     </div>
     <div class="footer-col">
-      <p>Buenos Aires, Argentina</p>
-      <p><a href="mailto:hello@seanharrison.studio" class="link-arrow" style="padding-bottom:0;">hello@seanharrison.studio</a></p>
+      <p>Madrid, Spain</p>
+      <p><a href="mailto:seanharrison.coelho@gmail.com" class="link-arrow" style="padding-bottom:0;">seanharrison.coelho@gmail.com</a></p>
     </div>
     <div class="footer-col">
-      <p><a href="studio.html">Studio</a></p>
+      <p><a href="profile.html">Profile</a></p>
       <p><a href="contact.html">Contact</a></p>
+      <p><a href="https://www.linkedin.com/in/sharrison92/" class="link-arrow" style="padding-bottom:0;" target="_blank" rel="noopener">LinkedIn</a></p>
     </div>
   </div>
   <div class="wrap footer-bottom">
     <span>&copy; 2026 Sean Harrison</span>
-    <span>Architecture &middot; Interior &middot; Design</span>
+    <a href="#" id="lockPortfolio" style="opacity:0.8;">Lock portfolio</a>
   </div>
 </footer>
 

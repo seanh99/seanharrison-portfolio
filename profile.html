@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile — Sean Harrison</title>
+<meta name="description" content="Sean Harrison is an architect and project lead based in Madrid, with experience across residential, hospitality, institutional and cultural projects in Europe, the Americas and the Caribbean.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="password-gate" id="passwordGate">
+  <form class="gate-form" id="gateForm">
+    <p class="gate-logo">SEAN HARRISON</p>
+    <label class="eyebrow gate-label" for="gatePassword">Portfolio Access</label>
+    <div class="gate-input-wrap">
+      <input type="password" id="gatePassword" class="gate-input" autocomplete="current-password" required>
+      <button type="button" class="gate-toggle" id="gateToggle" aria-label="Show password">
+        <svg class="icon-eye" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 8s2.5-5 7-5 7 5 7 5-2.5 5-7 5-7-5-7-5Z" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="8" r="2" stroke="currentColor" stroke-width="1.2"/></svg>
+        <svg class="icon-eye-off" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 8s2.5-5 7-5 7 5 7 5-2.5 5-7 5-7-5-7-5Z" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="8" r="2" stroke="currentColor" stroke-width="1.2"/><line x1="2" y1="14" x2="14" y2="2" stroke="currentColor" stroke-width="1.2"/></svg>
+      </button>
+    </div>
+    <button type="submit" class="link-arrow gate-submit">Enter</button>
+    <p class="gate-error" id="gateError">Incorrect password. Please try again.</p>
+  </form>
+</div>
+
+<header class="site-header is-solid" id="siteHeader">
+  <div class="header-inner">
+    <a href="index.html" class="logo-mark">
+      <span class="logo-name">SEAN HARRISON</span>
+    </a>
+    <nav class="nav-links">
+      <a href="work.html">Projects</a>
+    </nav>
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="profile.html" class="is-active">Profile</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="work.html">Projects</a>
+  <a href="profile.html">Profile</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<main class="wrap" style="padding-top:calc(88px + 3.5rem); padding-bottom:6rem;">
+  <div class="profile-grid">
+    <div>
+      <img class="reveal" src="https://placehold.co/900x700/88857F/F5F3EF" alt="Portrait of Sean Harrison — placeholder, to be replaced">
+      <p class="profile-portrait-note reveal">Portrait to be replaced.</p>
+    </div>
+    <div class="profile-copy reveal reveal-delay-1">
+      <span class="eyebrow" style="color:var(--clay); display:block; margin-bottom:1.4rem;">Profile</span>
+      <p>Sean Harrison is an architect and project lead based in Madrid, with experience across residential, hospitality, institutional and cultural projects in Europe, the Americas and the Caribbean. His work spans concept design, architectural development, BIM coordination, procurement and construction delivery. This range allows him to move between design intent and technical resolution, maintaining continuity from the first idea through to completion.</p>
+      <p>Sean trained at the Facultad de Arquitectura, Dise&ntilde;o y Urbanismo of the Universidad de Buenos Aires, graduating in 2016, and completed an exchange at the &Eacute;cole Nationale Sup&eacute;rieure d'Architecture Paris-Malaquais. He later undertook further studies in Project Management at the Universidad Tecnol&oacute;gica Nacional.</p>
+      <p>His professional experience includes residential projects in Argentina; refurbishment and hospitality work across Spain, France and the United Kingdom; and four years producing coordinated BIM models and construction documentation for civic and educational projects in the United States. He currently works in Madrid as a Lead Architect, directing residential and hospitality projects from concept through construction across Europe, Latin America and the Caribbean.</p>
+      <p>Alongside his professional work, Sean develops independent architectural studies and collaborations, with a particular interest in residential design, hospitality, visual storytelling and emerging design technologies.</p>
+      <a href="assets/cv/Sean-Harrison-CV.pdf" class="link-arrow" target="_blank" rel="noopener">Download CV &#8599;</a>
+    </div>
+  </div>
+
+  <div class="profile-facts reveal reveal-delay-2">
+    <div>
+      <h3>Experience</h3>
+      <ul>
+        <li>Lead Architect<span class="fact-sub">EFC Holdings &middot; 2022&ndash;Present</span></li>
+        <li>BIM Architect<span class="fact-sub">Cordogan Clark Associates &middot; 2018&ndash;2022</span></li>
+        <li>Architect<span class="fact-sub">Beriot+Bernardini Arquitectos &middot; 2017&ndash;2018</span></li>
+        <li>Architect<span class="fact-sub">ID Construcciones &middot; 2013&ndash;2017</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Education</h3>
+      <ul>
+        <li>Universidad Tecnol&oacute;gica Nacional<span class="fact-sub">Project Management &middot; 2020</span></li>
+        <li>&Eacute;cole Nationale Sup&eacute;rieure d'Architecture Paris-Malaquais<span class="fact-sub">Exchange Program</span></li>
+        <li>Universidad de Buenos Aires<span class="fact-sub">Facultad de Arquitectura, Dise&ntilde;o y Urbanismo &middot; 2016</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Languages</h3>
+      <ul>
+        <li>Spanish<span class="fact-sub">Native</span></li>
+        <li>English<span class="fact-sub">Fluent</span></li>
+        <li>French<span class="fact-sub">Fluent</span></li>
+        <li>Italian<span class="fact-sub">Working knowledge</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Selected Locations</h3>
+      <ul>
+        <li>Spain</li>
+        <li>France</li>
+        <li>United Kingdom</li>
+        <li>United States</li>
+        <li>Argentina</li>
+        <li>Dominican Republic</li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-col">
+      <span class="logo-name">SEAN HARRISON</span>
+      <p style="margin-top:10px; opacity:0.6;">Architect &middot; Project Lead</p>
+    </div>
+    <div class="footer-col">
+      <p>Madrid, Spain</p>
+      <p><a href="mailto:seanharrison.coelho@gmail.com" class="link-arrow" style="padding-bottom:0;">seanharrison.coelho@gmail.com</a></p>
+    </div>
+    <div class="footer-col">
+      <p><a href="profile.html">Profile</a></p>
+      <p><a href="contact.html">Contact</a></p>
+      <p><a href="https://www.linkedin.com/in/sharrison92/" class="link-arrow" style="padding-bottom:0;" target="_blank" rel="noopener">LinkedIn</a></p>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>&copy; 2026 Sean Harrison</span>
+    <a href="#" id="lockPortfolio" style="opacity:0.8;">Lock portfolio</a>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -88,15 +88,67 @@ document.addEventListener('DOMContentLoaded', () => {
     revealEls.forEach(el => io.observe(el));
   }
 
-  /* ---------- Home hero slideshow ---------- */
+  /* ---------- Home hero: crossfade rotation + manual nav ---------- */
   const slides = document.querySelectorAll('.hero-slide');
-  if (slides.length > 1){
-    let i = 0;
-    setInterval(() => {
+  if (slides.length){
+    let i = Array.from(slides).findIndex(s => s.classList.contains('is-active'));
+    if (i < 0) i = 0;
+    const total = slides.length;
+    const captionTitle = document.getElementById('heroCaptionTitle');
+    const captionIndex = document.getElementById('heroCaptionIndex');
+    let timer;
+
+    function show(next){
       slides[i].classList.remove('is-active');
-      i = (i + 1) % slides.length;
+      i = (next + total) % total;
       slides[i].classList.add('is-active');
-    }, 5000);
+      if (captionIndex) captionIndex.textContent = `${String(i + 1).padStart(2,'0')} / ${String(total).padStart(2,'0')}`;
+      if (captionTitle) captionTitle.textContent = slides[i].dataset.caption || '';
+    }
+    function next(){ show(i + 1); }
+    function prev(){ show(i - 1); }
+    function restart(){
+      clearInterval(timer);
+      timer = setInterval(next, 8000);
+    }
+    restart();
+
+    const prevZone = document.querySelector('.hero-nav-zone.is-prev');
+    const nextZone = document.querySelector('.hero-nav-zone.is-next');
+    if (prevZone) prevZone.addEventListener('click', () => { prev(); restart(); });
+    if (nextZone) nextZone.addEventListener('click', () => { next(); restart(); });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight'){ next(); restart(); }
+      if (e.key === 'ArrowLeft'){ prev(); restart(); }
+    });
+
+    let touchStartX = null;
+    const stage = document.querySelector('.hero-stage');
+    if (stage){
+      stage.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive:true });
+      stage.addEventListener('touchend', (e) => {
+        if (touchStartX === null) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 40){
+          if (dx < 0) { next(); restart(); } else { prev(); restart(); }
+        }
+        touchStartX = null;
+      }, { passive:true });
+    }
+
+    if (captionIndex) captionIndex.textContent = `${String(i + 1).padStart(2,'0')} / ${String(total).padStart(2,'0')}`;
+    if (captionTitle) captionTitle.textContent = slides[i].dataset.caption || '';
+  }
+
+  /* ---------- Lock portfolio (clear session, show gate again) ---------- */
+  const lockLink = document.getElementById('lockPortfolio');
+  if (lockLink){
+    lockLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      sessionStorage.removeItem(GATE_STORAGE_KEY);
+      window.location.reload();
+    });
   }
 
   /* ---------- Work gallery: grid/list view toggle ---------- */
@@ -107,18 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
       viewButtons.forEach(b => b.classList.remove('is-active'));
       btn.classList.add('is-active');
       if (galleryGrid) galleryGrid.classList.toggle('is-list', btn.dataset.view === 'list');
-    });
-  });
-
-  /* ---------- Studio tabs ---------- */
-  const studioTabs = document.querySelectorAll('.studio-tabs button');
-  const studioPanels = document.querySelectorAll('.studio-panel');
-  studioTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      studioTabs.forEach(t => t.classList.remove('is-active'));
-      studioPanels.forEach(p => p.classList.remove('is-active'));
-      tab.classList.add('is-active');
-      document.getElementById(tab.dataset.panel)?.classList.add('is-active');
     });
   });
 

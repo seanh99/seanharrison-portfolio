@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — Sean Harrison</title>
-<meta name="description" content="Get in touch with Sean Harrison's architecture practice, based in Buenos Aires and Madrid.">
+<meta name="description" content="Get in touch with Sean Harrison, architect and project lead based in Madrid, Spain.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
 <div class="password-gate" id="passwordGate">
   <form class="gate-form" id="gateForm">
     <p class="gate-logo">SEAN HARRISON</p>
-    <label class="eyebrow gate-label" for="gatePassword">Enter Password</label>
+    <label class="eyebrow gate-label" for="gatePassword">Portfolio Access</label>
     <div class="gate-input-wrap">
       <input type="password" id="gatePassword" class="gate-input" autocomplete="current-password" required>
       <button type="button" class="gate-toggle" id="gateToggle" aria-label="Show password">
@@ -38,7 +38,7 @@
     </nav>
     <div class="nav-right">
       <nav class="nav-links">
-        <a href="studio.html">Studio</a>
+        <a href="profile.html">Profile</a>
         <a href="contact.html" class="is-active">Contact</a>
       </nav>
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
@@ -51,44 +51,28 @@
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
   <a href="work.html">Projects</a>
-  <a href="studio.html">Studio</a>
+  <a href="profile.html">Profile</a>
   <a href="contact.html">Contact</a>
 </div>
 
-<main class="wrap" style="padding-top:calc(88px + 4rem); padding-bottom:6rem;">
-  <div class="contact-grid">
-    <div class="contact-maps reveal">
-      <iframe
-        class="contact-map"
-        src="https://www.google.com/maps?q=Buenos+Aires,+Argentina&output=embed"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Map — Buenos Aires, Argentina">
-      </iframe>
-      <iframe
-        class="contact-map"
-        src="https://www.google.com/maps?q=Madrid,+Spain&output=embed"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Map — Madrid, Spain">
-      </iframe>
+<main class="wrap" style="padding-top:calc(88px + 4rem); padding-bottom:8rem;">
+  <div class="contact-simple reveal">
+    <span class="contact-name">Sean Harrison</span>
+    <p class="contact-location">Madrid, Spain</p>
+
+    <div class="contact-block">
+      <span class="eyebrow">Email</span>
+      <a href="mailto:seanharrison.coelho@gmail.com">seanharrison.coelho@gmail.com</a>
     </div>
 
-    <div class="contact-details reveal reveal-delay-1">
-      <div class="contact-block">
-        <span class="eyebrow">Contact</span>
-      </div>
-      <div class="contact-block">
-        <p class="eyebrow" style="opacity:0.55; margin-bottom:0.6rem;">Buenos Aires</p>
-        <p class="contact-email"><a href="mailto:hello@seanharrison.studio" class="link-arrow">hello@seanharrison.studio</a></p>
-      </div>
-      <div class="contact-block">
-        <p class="eyebrow" style="opacity:0.55; margin-bottom:0.6rem;">Madrid</p>
-        <p class="contact-email"><a href="mailto:hello@seanharrison.studio" class="link-arrow">hello@seanharrison.studio</a></p>
-      </div>
-      <div class="contact-block">
-        <p style="opacity:0.7;">Available worldwide.</p>
-      </div>
+    <div class="contact-block">
+      <span class="eyebrow">Telephone</span>
+      <a href="tel:+34603814611">+34 603 814 611</a>
+    </div>
+
+    <div class="contact-block">
+      <span class="eyebrow">LinkedIn</span>
+      <a href="https://www.linkedin.com/in/sharrison92/" target="_blank" rel="noopener">linkedin.com/in/sharrison92 &#8599;</a>
     </div>
   </div>
 </main>
@@ -97,20 +81,21 @@
   <div class="wrap footer-top">
     <div class="footer-col">
       <span class="logo-name">SEAN HARRISON</span>
-      <p style="margin-top:10px; opacity:0.6;">Architecture &middot; Interior &middot; Design</p>
+      <p style="margin-top:10px; opacity:0.6;">Architect &middot; Project Lead</p>
     </div>
     <div class="footer-col">
-      <p>Buenos Aires, Argentina</p>
-      <p><a href="mailto:hello@seanharrison.studio" class="link-arrow" style="padding-bottom:0;">hello@seanharrison.studio</a></p>
+      <p>Madrid, Spain</p>
+      <p><a href="mailto:seanharrison.coelho@gmail.com" class="link-arrow" style="padding-bottom:0;">seanharrison.coelho@gmail.com</a></p>
     </div>
     <div class="footer-col">
-      <p><a href="studio.html">Studio</a></p>
+      <p><a href="profile.html">Profile</a></p>
       <p><a href="contact.html">Contact</a></p>
+      <p><a href="https://www.linkedin.com/in/sharrison92/" class="link-arrow" style="padding-bottom:0;" target="_blank" rel="noopener">LinkedIn</a></p>
     </div>
   </div>
   <div class="wrap footer-bottom">
     <span>&copy; 2026 Sean Harrison</span>
-    <span>Architecture &middot; Interior &middot; Design</span>
+    <a href="#" id="lockPortfolio" style="opacity:0.8;">Lock portfolio</a>
   </div>
 </footer>
 
