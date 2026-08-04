@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "finca-son-ponent",
+    "folder": "tramuntana",
+    "title": "Finca Son Ponent",
+    "location": "Serra de Tramuntana, Mallorca, Spain",
+    "caption": "Finca Son Ponent, Mallorca"
+  },
+  {
+    "slug": "casa-jungla",
+    "folder": "casa-jungla",
+    "title": "Casa Jungla",
+    "location": "Playa Cosón, Samaná, Dominican Republic",
+    "caption": "Casa Jungla, Samaná"
+  },
+  {
+    "slug": "serrano-heights",
+    "folder": "serrano-heights",
+    "title": "Serrano Heights",
+    "location": "Madrid, Spain",
+    "caption": "Serrano Heights, Madrid"
+  },
+  {
+    "slug": "alcala-apartment",
+    "folder": "alcala-apartment",
+    "title": "Alcalá Apartment",
+    "location": "Madrid, Spain",
+    "caption": "Alcalá Apartment, Madrid"
+  }
+]

@@ -5,7 +5,7 @@
 // Client-side password gate. Not real security — this is a soft gate to
 // keep casual visitors out of a private preview, not to protect sensitive
 // data (the password is readable in this file's source).
-const SITE_PASSWORD = 'seanharrisonportfolio';
+const SITE_PASSWORD = 'welcome';
 const GATE_STORAGE_KEY = 'sh_site_unlocked';
 
 (function initGate(){
@@ -35,7 +35,7 @@ const GATE_STORAGE_KEY = 'sh_site_unlocked';
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (input.value === SITE_PASSWORD){
+    if (input.value.trim().toLowerCase() === SITE_PASSWORD){
       sessionStorage.setItem(GATE_STORAGE_KEY, '1');
       document.documentElement.style.overflow = '';
       gate.remove();

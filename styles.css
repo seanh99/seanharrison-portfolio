@@ -380,3 +380,9 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
   display:none; margin-top:1.1rem; font-size:0.78rem; letter-spacing:0.04em; color:#a3392f;
 }
 .gate-error.is-visible{ display:block; }
+.gate-request{
+  display:inline-block; margin-top:2.25rem; font-size:0.78rem; letter-spacing:0.03em;
+  color:var(--clay); text-decoration:underline; text-underline-offset:3px; opacity:0.8;
+  transition:opacity .25s ease, color .25s ease;
+}
+.gate-request:hover{ opacity:1; color:var(--charcoal); }
