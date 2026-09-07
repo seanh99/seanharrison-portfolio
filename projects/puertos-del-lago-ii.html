@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casa Riberas — Sean Harrison</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="password-gate" id="passwordGate">
+  <form class="gate-form" id="gateForm">
+    <p class="gate-logo">SEAN HARRISON</p>
+    <label class="eyebrow gate-label" for="gatePassword">Portfolio Access</label>
+    <input type="password" id="gatePassword" class="gate-input" autocomplete="current-password" required>
+    <button type="button" class="gate-toggle" id="gateToggle">Show password</button>
+    <button type="submit" class="link-arrow gate-submit">Enter</button>
+    <p class="gate-error" id="gateError">Incorrect password. Please try again.</p>
+    <a class="gate-request" href="mailto:seanharrison.coelho@gmail.com?subject=Portfolio%20Access%20Request&body=Hi%20Sean%2C%0A%0AI%27d%20like%20to%20request%20access%20to%20your%20portfolio.%0A%0AName%3A%20%0AHow%20I%20found%20you%3A%20">Request access</a>
+  </form>
+</div>
+
+<header class="site-header is-solid" id="siteHeader">
+  <div class="header-inner">
+    <a href="../index.html" class="logo-mark">
+      <span class="logo-name">SEAN HARRISON</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../work.html" class="is-active">Projects</a>
+    </nav>
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="../profile.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="../work.html">Projects</a>
+  <a href="../profile.html">About</a>
+  <a href="../contact.html">Contact</a>
+</div>
+
+<main class="project-main">
+  <div class="carousel-wrap" aria-label="Casa Riberas gallery">
+    <div class="carousel-track">
+      <img src="../assets/images/puertos-del-lago-ii/01-facade-day-c.jpg" alt="Casa Riberas — Facade day" draggable="false">
+      <img src="../assets/images/puertos-del-lago-ii/02-rear-garden-pool.jpg" alt="Casa Riberas — Rear garden pool" draggable="false">
+    </div>
+  </div>
+
+  <div class="wrap project-info">
+    <div class="project-info-grid">
+      <div>
+        <p class="project-title project-info-title">Casa Riberas</p>
+        <p class="project-info-desc">Commission for a private residence developed from the initial project definition through municipal approval. The work included the overall architectural concept, spatial organisation, material strategy and preparation of the documentation required for approval.
+
+Following completion of the design package, the clients appointed their own construction team and managed the delivery of the house independently.
+
+The project was conceived as a contemporary family home organised around a strong relationship between interior spaces, garden and outdoor living areas. Large openings, protected terraces and layered fa&ccedil;ade elements balance openness with privacy, while a restrained material palette gives continuity to the different volumes.
+
+The architecture combines clear horizontal planes with vertical timber elements, using changes in depth, transparency and material to articulate the elevations without relying on excessive formal gestures.
+
+A complete architectural and municipal approval package was delivered to the clients, who subsequently appointed their own construction team to execute the project. Limited architectural support continued during construction when specific design clarifications or additional details were required.</p>
+      </div>
+      <div class="project-meta-list">
+        <div class="meta-row meta-row--split"><span>Status</span><span>Design and Municipal Approval Package Completed &middot; Construction by Client-Appointed Team</span></div>
+        <div class="meta-row">Barrio Riberas, Puertos del Lago, Buenos Aires, Argentina &middot; 2018</div>
+        <div class="meta-row">Feasibility study, Concept design, Architectural design, Municipal approval documentation, Ad hoc construction support</div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="project-nav wrap">
+    <a href="caledonian-road-apartment.html">&larr; Caledonian Road</a>
+    <a href="../work.html" class="nav-center">Project Index</a>
+    <a href="casa-estancias-del-pilar.html">Casa Estancias del Pilar &rarr;</a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-col">
+      <span class="logo-name">SEAN HARRISON</span>
+      <p style="margin-top:10px; opacity:0.6;">Architect &middot; Project Lead</p>
+    </div>
+    <div class="footer-col">
+      <p>Madrid, Spain</p>
+      <p><a href="mailto:seanharrison.coelho@gmail.com" class="link-arrow" style="padding-bottom:0;">seanharrison.coelho@gmail.com</a></p>
+    </div>
+    <div class="footer-col">
+      <p><a href="../profile.html">About</a></p>
+      <p><a href="../contact.html">Contact</a></p>
+      <p><a href="https://www.linkedin.com/in/sharrison92/" class="link-arrow" style="padding-bottom:0;" target="_blank" rel="noopener">LinkedIn</a></p>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>&copy; 2026 Sean Harrison</span>
+    <a href="#" id="lockPortfolio" style="opacity:0.8;">Lock portfolio</a>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

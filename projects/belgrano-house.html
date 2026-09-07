@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belgrano House — Sean Harrison</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="password-gate" id="passwordGate">
+  <form class="gate-form" id="gateForm">
+    <p class="gate-logo">SEAN HARRISON</p>
+    <label class="eyebrow gate-label" for="gatePassword">Portfolio Access</label>
+    <input type="password" id="gatePassword" class="gate-input" autocomplete="current-password" required>
+    <button type="button" class="gate-toggle" id="gateToggle">Show password</button>
+    <button type="submit" class="link-arrow gate-submit">Enter</button>
+    <p class="gate-error" id="gateError">Incorrect password. Please try again.</p>
+    <a class="gate-request" href="mailto:seanharrison.coelho@gmail.com?subject=Portfolio%20Access%20Request&body=Hi%20Sean%2C%0A%0AI%27d%20like%20to%20request%20access%20to%20your%20portfolio.%0A%0AName%3A%20%0AHow%20I%20found%20you%3A%20">Request access</a>
+  </form>
+</div>
+
+<header class="site-header is-solid" id="siteHeader">
+  <div class="header-inner">
+    <a href="../index.html" class="logo-mark">
+      <span class="logo-name">SEAN HARRISON</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../work.html" class="is-active">Projects</a>
+    </nav>
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="../profile.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="../work.html">Projects</a>
+  <a href="../profile.html">About</a>
+  <a href="../contact.html">Contact</a>
+</div>
+
+<main class="project-main">
+  <div class="carousel-wrap" aria-label="Belgrano House gallery">
+    <div class="carousel-track">
+      <img src="../assets/images/belgrano-house/01-street-facade-c.jpg" alt="Belgrano House — Street facade" draggable="false">
+      <img src="../assets/images/belgrano-house/02-dining-kitchen.jpg" alt="Belgrano House — Dining kitchen" draggable="false">
+      <img src="../assets/images/belgrano-house/03-staircase.jpg" alt="Belgrano House — Staircase" draggable="false">
+      <img src="../assets/images/belgrano-house/04-powder-room.jpg" alt="Belgrano House — Powder room" draggable="false">
+    </div>
+  </div>
+
+  <div class="wrap project-info">
+    <div class="project-info-grid">
+      <div>
+        <p class="project-title project-info-title">Belgrano House</p>
+        <p class="project-info-desc">Renovation of an existing private residence in Belgrano, Buenos Aires, developed independently in collaboration with a local furniture studio. The commission formed part of an ongoing collaboration in which I developed the architectural and interior design of residential projects, while the studio contributed the furniture selection and supply.
+
+The project reworked the existing house through a restrained contemporary language, balancing the character of the original building with a warmer and more precise interior atmosphere.
+
+Externally, the intervention simplifies the composition through light rendered surfaces, timber elements and carefully framed openings, creating a quieter relationship with the mature tree-lined streets typical of Belgrano.
+
+Internally, the renovation combines warm oak flooring, subtle wall mouldings, natural stone and controlled lighting. The intention was to create spaces that feel residential and layered rather than overly styled, allowing furniture and materiality to carry most of the visual character.
+
+A complete renovation and interior design proposal was developed for the client, defining the architectural intervention, spatial character, material palette and key interior details, with furniture specified and supplied by the collaborating studio.</p>
+      </div>
+      <div class="project-meta-list">
+        <div class="meta-row meta-row--split"><span>Status</span><span>Design Package Completed</span></div>
+        <div class="meta-row">Belgrano, Buenos Aires, Argentina &middot; 2018</div>
+        <div class="meta-row">Renovation concept, Architectural design, Interior design, Material and finish selection, Joinery and detail design</div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="project-nav wrap">
+    <a href="maribor-country-house.html">&larr; Maribor Country House</a>
+    <a href="../work.html" class="nav-center">Project Index</a>
+    <a href="#"></a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-col">
+      <span class="logo-name">SEAN HARRISON</span>
+      <p style="margin-top:10px; opacity:0.6;">Architect &middot; Project Lead</p>
+    </div>
+    <div class="footer-col">
+      <p>Madrid, Spain</p>
+      <p><a href="mailto:seanharrison.coelho@gmail.com" class="link-arrow" style="padding-bottom:0;">seanharrison.coelho@gmail.com</a></p>
+    </div>
+    <div class="footer-col">
+      <p><a href="../profile.html">About</a></p>
+      <p><a href="../contact.html">Contact</a></p>
+      <p><a href="https://www.linkedin.com/in/sharrison92/" class="link-arrow" style="padding-bottom:0;" target="_blank" rel="noopener">LinkedIn</a></p>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>&copy; 2026 Sean Harrison</span>
+    <a href="#" id="lockPortfolio" style="opacity:0.8;">Lock portfolio</a>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

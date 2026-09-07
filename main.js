@@ -27,8 +27,7 @@ const GATE_STORAGE_KEY = 'sh_site_unlocked';
     toggle.addEventListener('click', () => {
       const showing = input.type === 'text';
       input.type = showing ? 'password' : 'text';
-      toggle.classList.toggle('is-showing', !showing);
-      toggle.setAttribute('aria-label', showing ? 'Show password' : 'Hide password');
+      toggle.textContent = showing ? 'Show password' : 'Hide password';
       input.focus({ preventScroll: true });
     });
   }
@@ -151,17 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---------- Work gallery: grid/list view toggle ---------- */
-  const viewButtons = document.querySelectorAll('.view-toggle button');
-  const galleryGrid = document.querySelector('.gallery-grid');
-  viewButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      viewButtons.forEach(b => b.classList.remove('is-active'));
-      btn.classList.add('is-active');
-      if (galleryGrid) galleryGrid.classList.toggle('is-list', btn.dataset.view === 'list');
-    });
-  });
-
   /* ---------- Plans overlay ---------- */
   const plansTrigger = document.getElementById('viewPlansBtn');
   const plansOverlay = document.getElementById('plansOverlay');
@@ -191,6 +179,112 @@ document.addEventListener('DOMContentLoaded', () => {
       tab.classList.add('is-active');
       document.getElementById(tab.dataset.plate)?.classList.add('is-active');
     });
+  });
+
+  /* ---------- Project page: full-bleed continuous carousel ---------- */
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.querySelectorAll('.carousel-wrap').forEach(wrap => {
+    const track = wrap.querySelector('.carousel-track');
+    if (!track) return;
+    const originals = Array.from(track.children);
+    if (!originals.length){ wrap.classList.add('no-images'); return; }
+
+    // Duplicate the sequence once for a seamless loop.
+    originals.forEach(node => track.appendChild(node.cloneNode(true)));
+
+    let setWidth = 0;
+    let offset = 0;
+    let isPaused = reduceMotion;
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartOffset = 0;
+    let resumeTimer = null;
+    const VELOCITY = 26; // px/sec
+    const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || '0');
+
+    function measure(){
+      setWidth = 0;
+      originals.forEach((img, i) => {
+        setWidth += img.getBoundingClientRect().width;
+        if (i < originals.length - 1) setWidth += gap;
+      });
+      setWidth += gap;
+    }
+    function applyTransform(){ track.style.transform = `translateX(${-offset}px)`; }
+    function wrapOffset(){
+      if (setWidth <= 0) return;
+      offset = ((offset % setWidth) + setWidth) % setWidth;
+    }
+
+    let lastT = null;
+    function tick(t){
+      if (lastT === null) lastT = t;
+      const dt = (t - lastT) / 1000;
+      lastT = t;
+      if (!isPaused && !isDragging && setWidth > 0){
+        offset += VELOCITY * dt;
+        wrapOffset();
+        applyTransform();
+      }
+      requestAnimationFrame(tick);
+    }
+    function scheduleResume(){
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => { isPaused = reduceMotion ? true : false; }, 1400);
+    }
+
+    wrap.addEventListener('mouseenter', () => { isPaused = true; });
+    wrap.addEventListener('mouseleave', () => { if (!isDragging) scheduleResume(); });
+    wrap.addEventListener('focusin', () => { isPaused = true; });
+    wrap.addEventListener('focusout', () => scheduleResume());
+
+    wrap.addEventListener('pointerdown', (e) => {
+      isDragging = true; isPaused = true;
+      dragStartX = e.clientX; dragStartOffset = offset;
+      wrap.classList.add('is-dragging');
+      wrap.setPointerCapture(e.pointerId);
+    });
+    wrap.addEventListener('pointermove', (e) => {
+      if (!isDragging) return;
+      offset = dragStartOffset - (e.clientX - dragStartX);
+      wrapOffset(); applyTransform();
+    });
+    function endDrag(){
+      if (!isDragging) return;
+      isDragging = false;
+      wrap.classList.remove('is-dragging');
+      scheduleResume();
+    }
+    wrap.addEventListener('pointerup', endDrag);
+    wrap.addEventListener('pointercancel', endDrag);
+
+    wrap.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+      e.preventDefault();
+      isPaused = true;
+      offset += e.deltaX;
+      wrapOffset(); applyTransform();
+      scheduleResume();
+    }, { passive: false });
+
+    wrap.setAttribute('tabindex', '0');
+    wrap.addEventListener('keydown', (e) => {
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      e.preventDefault();
+      isPaused = true;
+      const step = originals[0] ? originals[0].getBoundingClientRect().width + gap : 300;
+      track.style.transition = 'transform .4s cubic-bezier(.4,0,.2,1)';
+      offset += (e.key === 'ArrowRight') ? step : -step;
+      wrapOffset(); applyTransform();
+      setTimeout(() => { track.style.transition = ''; }, 420);
+      scheduleResume();
+    });
+
+    const imgs = Array.from(track.querySelectorAll('img'));
+    Promise.all(imgs.map(img => img.decode ? img.decode().catch(() => {}) : Promise.resolve()))
+      .then(() => { measure(); requestAnimationFrame(tick); });
+    window.addEventListener('resize', () => measure());
   });
 
 });

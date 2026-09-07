@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caledonian Road — Sean Harrison</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="password-gate" id="passwordGate">
+  <form class="gate-form" id="gateForm">
+    <p class="gate-logo">SEAN HARRISON</p>
+    <label class="eyebrow gate-label" for="gatePassword">Portfolio Access</label>
+    <input type="password" id="gatePassword" class="gate-input" autocomplete="current-password" required>
+    <button type="button" class="gate-toggle" id="gateToggle">Show password</button>
+    <button type="submit" class="link-arrow gate-submit">Enter</button>
+    <p class="gate-error" id="gateError">Incorrect password. Please try again.</p>
+    <a class="gate-request" href="mailto:seanharrison.coelho@gmail.com?subject=Portfolio%20Access%20Request&body=Hi%20Sean%2C%0A%0AI%27d%20like%20to%20request%20access%20to%20your%20portfolio.%0A%0AName%3A%20%0AHow%20I%20found%20you%3A%20">Request access</a>
+  </form>
+</div>
+
+<header class="site-header is-solid" id="siteHeader">
+  <div class="header-inner">
+    <a href="../index.html" class="logo-mark">
+      <span class="logo-name">SEAN HARRISON</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../work.html" class="is-active">Projects</a>
+    </nav>
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="../profile.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="../work.html">Projects</a>
+  <a href="../profile.html">About</a>
+  <a href="../contact.html">Contact</a>
+</div>
+
+<main class="project-main">
+  <div class="carousel-wrap" aria-label="Caledonian Road gallery">
+    <div class="carousel-track">
+      <img src="../assets/images/caledonian-road-apartment/01-living-room-c.jpg" alt="Caledonian Road — Living room" draggable="false">
+      <img src="../assets/images/caledonian-road-apartment/02-hall-corridor.jpg" alt="Caledonian Road — Hall corridor" draggable="false">
+      <img src="../assets/images/caledonian-road-apartment/03-dining-kitchen.jpg" alt="Caledonian Road — Dining kitchen" draggable="false">
+    </div>
+  </div>
+
+  <div class="wrap project-info">
+    <div class="project-info-grid">
+      <div>
+        <p class="project-title project-info-title">Caledonian Road</p>
+        <p class="project-info-desc">Developed for a private investor, the project explored the conversion of four adjoining London townhouses into a coordinated short-stay residential product.
+
+The work established the overall spatial strategy, including access, ground-floor and basement extensions, additional mansard accommodation and the internal configuration of the individual units. The architectural proposal was developed alongside the interior concept, material palette and FF&amp;E specification to create a consistent identity across the properties while retaining the scale and character of the existing buildings.</p>
+      </div>
+      <div class="project-meta-list">
+        <div class="meta-row">London, United Kingdom &middot; 2022&ndash;23</div>
+        <div class="meta-row">Architectural concept, Spatial strategy, Extension studies, Interior architecture, FF&amp;E design, Visual direction</div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="project-nav wrap">
+    <a href="humlebaek-house.html">&larr; Humlebaek House</a>
+    <a href="../work.html" class="nav-center">Project Index</a>
+    <a href="puertos-del-lago-ii.html">Casa Riberas &rarr;</a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-col">
+      <span class="logo-name">SEAN HARRISON</span>
+      <p style="margin-top:10px; opacity:0.6;">Architect &middot; Project Lead</p>
+    </div>
+    <div class="footer-col">
+      <p>Madrid, Spain</p>
+      <p><a href="mailto:seanharrison.coelho@gmail.com" class="link-arrow" style="padding-bottom:0;">seanharrison.coelho@gmail.com</a></p>
+    </div>
+    <div class="footer-col">
+      <p><a href="../profile.html">About</a></p>
+      <p><a href="../contact.html">Contact</a></p>
+      <p><a href="https://www.linkedin.com/in/sharrison92/" class="link-arrow" style="padding-bottom:0;" target="_blank" rel="noopener">LinkedIn</a></p>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>&copy; 2026 Sean Harrison</span>
+    <a href="#" id="lockPortfolio" style="opacity:0.8;">Lock portfolio</a>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

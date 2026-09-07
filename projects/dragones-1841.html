@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dragones 1841 — Sean Harrison</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="password-gate" id="passwordGate">
+  <form class="gate-form" id="gateForm">
+    <p class="gate-logo">SEAN HARRISON</p>
+    <label class="eyebrow gate-label" for="gatePassword">Portfolio Access</label>
+    <input type="password" id="gatePassword" class="gate-input" autocomplete="current-password" required>
+    <button type="button" class="gate-toggle" id="gateToggle">Show password</button>
+    <button type="submit" class="link-arrow gate-submit">Enter</button>
+    <p class="gate-error" id="gateError">Incorrect password. Please try again.</p>
+    <a class="gate-request" href="mailto:seanharrison.coelho@gmail.com?subject=Portfolio%20Access%20Request&body=Hi%20Sean%2C%0A%0AI%27d%20like%20to%20request%20access%20to%20your%20portfolio.%0A%0AName%3A%20%0AHow%20I%20found%20you%3A%20">Request access</a>
+  </form>
+</div>
+
+<header class="site-header is-solid" id="siteHeader">
+  <div class="header-inner">
+    <a href="../index.html" class="logo-mark">
+      <span class="logo-name">SEAN HARRISON</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../work.html" class="is-active">Projects</a>
+    </nav>
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="../profile.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="../work.html">Projects</a>
+  <a href="../profile.html">About</a>
+  <a href="../contact.html">Contact</a>
+</div>
+
+<main class="project-main">
+  <div class="carousel-wrap" aria-label="Dragones 1841 gallery">
+    <div class="carousel-track">
+      <img src="../assets/images/dragones-1841/01-entrance-facade-c.jpg" alt="Dragones 1841 — Entrance facade" draggable="false">
+      <img src="../assets/images/dragones-1841/02-night-render.jpg" alt="Dragones 1841 — Night render" draggable="false">
+      <img src="../assets/images/dragones-1841/03-day-render-pool.jpg" alt="Dragones 1841 — Day render pool" draggable="false">
+      <img src="../assets/images/dragones-1841/04-lobby-interior.jpg" alt="Dragones 1841 — Lobby interior" draggable="false">
+      <img src="../assets/images/dragones-1841/05-rooftop-terrace-aerial.jpg" alt="Dragones 1841 — Rooftop terrace aerial" draggable="false">
+      <img src="../assets/images/dragones-1841/06-rooftop-pool-deck.jpg" alt="Dragones 1841 — Rooftop pool deck" draggable="false">
+      <img src="../assets/images/dragones-1841/07-rooftop-aerial-detail.jpg" alt="Dragones 1841 — Rooftop aerial detail" draggable="false">
+    </div>
+  </div>
+
+  <div class="wrap project-info">
+    <div class="project-info-grid">
+      <div>
+        <p class="project-title project-info-title">Dragones 1841</p>
+        <p class="project-info-desc">Taken over with the preliminary design complete and permit already filed. While approval was pending, coordinated structural, plumbing, electrical, interior design and procurement; once construction started, worked as site architect with regular visits, resolving details on site and occasionally standing in as site supervisor.</p>
+      </div>
+      <div class="project-meta-list">
+        <div class="meta-row">Structural, plumbing and electrical coordination, Interior design coordination, Procurement, Site architect</div>
+        <div class="meta-row meta-row--split"><span>Developed at</span><span>ID</span></div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="project-nav wrap">
+    <a href="dragones-1875.html">&larr; Dragones 1875</a>
+    <a href="../work.html" class="nav-center">Project Index</a>
+    <a href="sucre-992.html">Sucre 992 &rarr;</a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-col">
+      <span class="logo-name">SEAN HARRISON</span>
+      <p style="margin-top:10px; opacity:0.6;">Architect &middot; Project Lead</p>
+    </div>
+    <div class="footer-col">
+      <p>Madrid, Spain</p>
+      <p><a href="mailto:seanharrison.coelho@gmail.com" class="link-arrow" style="padding-bottom:0;">seanharrison.coelho@gmail.com</a></p>
+    </div>
+    <div class="footer-col">
+      <p><a href="../profile.html">About</a></p>
+      <p><a href="../contact.html">Contact</a></p>
+      <p><a href="https://www.linkedin.com/in/sharrison92/" class="link-arrow" style="padding-bottom:0;" target="_blank" rel="noopener">LinkedIn</a></p>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>&copy; 2026 Sean Harrison</span>
+    <a href="#" id="lockPortfolio" style="opacity:0.8;">Lock portfolio</a>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>
