@@ -23,11 +23,13 @@
 // projects.json for later enabling.
 //
 // Image ordering / curation convention:
-//   assets/images/<folder>/NN-description.ext     -> gallery order
-//   assets/images/<folder>/NN-description-c.ext   -> eligible for HERO_CURATION
-//   assets/images/<folder>/NN-description-f.ext   -> cover image on the
-//                                                     Projects index (hover/click)
-//   assets/images/<folder>/NN-description-c-f.ext -> both
+//   assets/images/<folder>/NN-description.ext    -> gallery order; the
+//                                                    lowest-numbered image
+//                                                    (00 or 01) is always
+//                                                    the cover shown on
+//                                                    hover/click in the
+//                                                    Projects index
+//   assets/images/<folder>/NN-description-c.ext  -> eligible for HERO_CURATION
 // A project's optional "excludeImages" array (filenames) removes images
 // from the published gallery without deleting them from disk.
 //
@@ -45,22 +47,22 @@ const projects = allProjects.filter(p => !p.hidden);
 
 const LANGS = ['en', 'es'];
 
-const IMG_RE = /^(\d+)-(.+?)((?:-[cf])*)\.(jpe?g|png|webp)$/i;
+const IMG_RE = /^(\d+)-(.+?)(-c)?\.(jpe?g|png|webp)$/i;
 
 // ---------------- Curated homepage carousel ----------------
 // Explicit, intentional selection — not every project's auto hero.
 const HERO_CURATION = [
   'assets/images/tramuntana/02-aerial-c.jpg',
   'assets/images/tramuntana/04-road-into-property-c.jpg',
-  'assets/images/serrano-heights/02-entrance-c.jpg',
+  'assets/images/serrano-heights/03-entrance-c.jpg',
   'assets/images/serrano-heights/06-living-room.jpg',
   'assets/images/casa-porreres/01-salon-render-c.jpg',
-  'assets/images/corales-80/02-pool-terrace-render.jpg',
+  'assets/images/corales-80/03-pool-terrace-render.jpg',
   'assets/images/ramsay-1850/01-street-facade.jpg',
-  'assets/images/ramsay-1850/03-aerial-rooftop.jpg',
-  'assets/images/casa-porreres/02-living-room-render.jpg',
+  'assets/images/ramsay-1850/04-aerial-rooftop.jpg',
+  'assets/images/casa-porreres/05-kitchen-render.jpg',
   'assets/images/canoa-15/01-front-exterior-c.jpg',
-  'assets/images/casa-jungla/01-aerial-distant-c.jpg',
+  'assets/images/casa-jungla/00-aerial-distant-c.jpg',
   'assets/images/humlebaek-house/01-exterior-street-c.jpg',
 ];
 
@@ -122,11 +124,10 @@ function listImages(project){
   const files = fs.readdirSync(dir).filter(f => IMG_RE.test(f) && !exclude.has(f));
   return files
     .map(file => {
-      const [, num, description, flags] = file.match(IMG_RE);
+      const [, num, description, flag] = file.match(IMG_RE);
       return {
         file, num: parseInt(num, 10), description,
-        isCarousel: flags.includes('-c'),
-        isFeaturedImage: flags.includes('-f'),
+        isCarousel: !!flag,
         alt: toAlt(description)
       };
     })
@@ -307,7 +308,7 @@ function heroSlides(lang){
 function projectRecord(lang, project){
   const imagePrefix = lang === 'en' ? '' : '../'; // /work.html vs /es/work.html — both reference the root-level assets/ folder
   const imgs = listImages(project);
-  const cover = (imgs.find(i => i.isFeaturedImage) || imgs.find(i => i.isCarousel) || imgs[0] || null);
+  const cover = imgs[0] || null; // lowest-numbered image (00 or 01) is always the hover/click cover
   const images = imgs.map(img => ({
     src: `${imagePrefix}assets/images/${project.folder}/${img.file}`,
     alt: `${project.title}: ${img.alt}`
