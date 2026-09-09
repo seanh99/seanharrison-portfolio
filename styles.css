@@ -107,6 +107,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
 }
 .nav-links a:hover::after, .nav-links a.is-active::after{ transform:scaleX(1); transform-origin:left; }
 .nav-links a.is-active{ opacity:1; }
+.nav-links a.lang-switch{ opacity:0.55; }
+.nav-links a.lang-switch:hover{ opacity:1; }
 
 .nav-right{ display:flex; align-items:center; gap:2.25rem; }
 

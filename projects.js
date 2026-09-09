@@ -2,14 +2,17 @@
 // Sean Harrison — Projects page (editorial index + viewer)
 //
 // Reads the project dataset embedded by build-project-pages.mjs
-// (script#projects-data) and drives the whole index/main-image/
-// info experience client-side. See projects.json for the source
-// data and the "PROJECTS_DATA" marker in work.html for where the
-// JSON gets injected at build time.
+// (script#projects-data, already localized to this page's language)
+// and drives the whole index/main-image/info experience client-side.
 //
 // Desktop/tablet: shared main-image + info panels, with prev/next
 // controls under the image, driven by hover (preview) and click
-// (select).
+// (select). The currently *displayed* project — hovered project if
+// any, else the selected one — always drives both the image and the
+// info panel together, so they never show two different projects.
+// On load, the first visible project is pre-selected so the page
+// never opens with an empty state.
+//
 // Mobile (<700px): no hover, so each tap expands that project's
 // gallery + info inline, accordion-style, directly under its row.
 // ============================================================
@@ -19,6 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!dataEl) return; // not on the Projects page
 
   const PROJECTS = JSON.parse(dataEl.textContent);
+  const i18nEl = document.getElementById('projects-i18n');
+  const I18N = i18nEl ? JSON.parse(i18nEl.textContent) : {
+    developedAt: 'Developed at', prevImage: 'Previous image', nextImage: 'Next image', independentGroup: 'Independent',
+  };
 
   const indexEl = document.getElementById('projIndex');
   const stageEl = document.getElementById('projImageStage');
@@ -65,39 +72,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function infoHTML(p, opts){
     const skipTitle = opts && opts.skipTitle;
-    const metaLine = [p.location, p.year].filter(Boolean).join(' &middot; ');
+    const metaLine = [p.location, p.year].filter(Boolean).join(', ');
     const typeLines = [p.category, p.status].filter(Boolean);
-    const roleBlock = p.role && p.role.length
-      ? `<div class="proj-info-block"><span class="proj-info-label">Role</span>${p.role.map(r => `<p>${r}</p>`).join('')}</div>`
-      : '';
-    const studioBlock = p.studio
-      ? `<div class="proj-info-block"><span class="proj-info-label">Developed at</span><p>${p.studio}</p></div>`
-      : '';
-    const descBlock = p.description
-      ? p.description.split('\n\n').map(para => `<p class="proj-info-desc">${para}</p>`).join('')
-      : '';
-    const caseLink = p.caseStudy
-      ? `<a class="proj-case-link" href="projects/${p.slug}.html">View Case Study &rarr;</a>`
-      : '';
+    const developedBlock = p.developedAt
+      ? `<div class="proj-info-block"><span class="proj-info-label">${I18N.developedAt}</span><p>${p.developedAt}</p></div>`
+      : (p.independentLabel ? `<div class="proj-info-block"><p>${p.independentLabel}</p></div>` : '');
+    const bodyParas = [p.description, p.involvement].filter(Boolean);
+    const descBlock = bodyParas.map(para => `<p class="proj-info-desc">${para}</p>`).join('');
     return `
       ${skipTitle ? '' : `<p class="proj-info-title">${p.title}</p>`}
       <div class="proj-info-meta">
         ${metaLine ? `<p>${metaLine}</p>` : ''}
         ${typeLines.map(t => `<p>${t}</p>`).join('')}
       </div>
-      ${roleBlock}
-      ${studioBlock}
+      ${developedBlock}
       ${descBlock}
-      ${caseLink}
     `;
   }
 
   // ---------------- Desktop / tablet: shared panels ----------------
 
+  // The project currently shown in both the image stage and the info
+  // panel — hover takes priority as a live preview, falling back to the
+  // selected project, and finally to the first visible project so the
+  // page never opens empty.
   function displayProject(){
-    if (hoveredSlug) return findProject(hoveredSlug);
-    if (selectedSlug) return findProject(selectedSlug);
-    return visibleProjects()[0] || null;
+    return findProject(hoveredSlug) || findProject(selectedSlug) || visibleProjects()[0] || null;
   }
 
   function currentGalleryImages(){
@@ -135,7 +135,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function renderInfo(){
-    infoEl.innerHTML = selectedSlug ? infoHTML(findProject(selectedSlug)) : '';
+    const proj = displayProject();
+    infoEl.innerHTML = proj ? infoHTML(proj) : '';
   }
 
   function stepImage(dir){
@@ -202,11 +203,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (Math.abs(dx) > 40) stepMobileImage(dx < 0 ? 1 : -1);
         sx = null;
       }, { passive: true });
-    } else {
-      const empty = document.createElement('span');
-      empty.className = 'proj-image-empty';
-      empty.textContent = 'No images yet';
-      stage.appendChild(empty);
     }
     panel.appendChild(stage);
 
@@ -214,13 +210,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const nav = document.createElement('div');
       nav.className = 'proj-image-nav';
       const prev = document.createElement('button');
-      prev.type = 'button'; prev.textContent = '←'; prev.setAttribute('aria-label', 'Previous image');
+      prev.type = 'button'; prev.textContent = '←'; prev.setAttribute('aria-label', I18N.prevImage);
       prev.addEventListener('click', () => stepMobileImage(-1));
       const count = document.createElement('span');
       count.className = 'proj-image-count';
       count.textContent = `${String(mobileActiveIndex + 1).padStart(2, '0')} / ${String(p.images.length).padStart(2, '0')}`;
       const next = document.createElement('button');
-      next.type = 'button'; next.textContent = '→'; next.setAttribute('aria-label', 'Next image');
+      next.type = 'button'; next.textContent = '→'; next.setAttribute('aria-label', I18N.nextImage);
       next.addEventListener('click', () => stepMobileImage(1));
       nav.append(prev, count, next);
       panel.appendChild(nav);
@@ -240,9 +236,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // curated "default" order, since projects.json is authored in exactly
   // that grouped sequence. Year/A–Z sort flattens the list instead.
   function groupOf(p){
-    if (p.studio === 'EFC Holdings') return 'EFC';
-    if (p.studio === 'ID') return 'ID';
-    return 'Independent';
+    if (p.developedAt === 'EFC Holdings') return 'EFC';
+    if (p.developedAt === 'ID Construcciones') return 'ID';
+    return I18N.independentGroup;
   }
 
   function renderIndex(){
@@ -274,10 +270,10 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.dataset.slug = p.slug;
 
       if (!mobile){
-        btn.addEventListener('mouseenter', () => { hoveredSlug = p.slug; renderMainImage(); });
-        btn.addEventListener('focus', () => { hoveredSlug = p.slug; renderMainImage(); });
-        btn.addEventListener('mouseleave', () => { hoveredSlug = null; renderMainImage(); });
-        btn.addEventListener('blur', () => { hoveredSlug = null; renderMainImage(); });
+        btn.addEventListener('mouseenter', () => { hoveredSlug = p.slug; renderMainImage(); renderInfo(); });
+        btn.addEventListener('focus', () => { hoveredSlug = p.slug; renderMainImage(); renderInfo(); });
+        btn.addEventListener('mouseleave', () => { hoveredSlug = null; renderMainImage(); renderInfo(); });
+        btn.addEventListener('blur', () => { hoveredSlug = null; renderMainImage(); renderInfo(); });
       }
       btn.addEventListener('click', () => selectProject(p.slug));
       indexEl.appendChild(btn);
@@ -308,8 +304,14 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       filter = btn.dataset.filter;
       filterBtns.forEach(b => b.classList.toggle('is-active', b === btn));
+      const list = visibleProjects();
+      if (!selectedSlug || !list.some(p => p.slug === selectedSlug)){
+        selectedSlug = list[0] ? list[0].slug : null;
+        activeImageIndex = selectedSlug ? heroIndex(findProject(selectedSlug)) : 0;
+      }
       renderIndex();
       renderMainImage();
+      renderInfo();
     });
   });
 
@@ -329,6 +331,14 @@ document.addEventListener('DOMContentLoaded', () => {
     renderMainImage();
     renderInfo();
   });
+
+  // Pre-select the first visible project so the page never opens with
+  // an empty image/info state on desktop.
+  const initial = visibleProjects()[0];
+  if (initial && !isMobile()){
+    selectedSlug = initial.slug;
+    activeImageIndex = heroIndex(initial);
+  }
 
   renderIndex();
   renderMainImage();
