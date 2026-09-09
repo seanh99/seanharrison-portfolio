@@ -285,8 +285,14 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
 .proj-group-header{
   font-family:'Work Sans', sans-serif; font-size:0.64rem; letter-spacing:0.14em; text-transform:uppercase;
   color:var(--clay); opacity:0.75; margin-top:1.5rem; padding-bottom:0.3rem;
+  display:flex; align-items:center; justify-content:space-between; gap:0.6rem;
+  width:100%; background:none; border:none; text-align:left; cursor:pointer;
+  transition:opacity .15s ease;
 }
 .proj-group-header:first-child{ margin-top:0; }
+.proj-group-header:hover, .proj-group-header:focus-visible{ opacity:1; }
+.proj-group-chevron{ display:inline-block; font-size:0.6rem; transition:transform .2s ease; transform:rotate(0deg); }
+.proj-group-header[aria-expanded="false"] .proj-group-chevron{ transform:rotate(-90deg); }
 
 /* ---- Zone 2: main image ---- */
 .proj-main{ grid-area:main; display:flex; flex-direction:column; gap:1rem; min-height:0; }

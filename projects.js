@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let activeImageIndex = 0;
   let mobileOpenSlug = null;
   let mobileActiveIndex = 0;
+  const collapsedGroups = new Set();
 
   function byYearDesc(a, b){ return (parseInt(b.year, 10) || 0) - (parseInt(a.year, 10) || 0); }
   function byTitleAsc(a, b){ return a.title.localeCompare(b.title, 'en', { sensitivity: 'base' }); }
@@ -251,16 +252,34 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastGroup = null;
 
     list.forEach(p => {
+      let currentGroup = null;
       if (showGroups){
         const g = groupOf(p);
+        currentGroup = g;
         if (g !== lastGroup){
-          const header = document.createElement('div');
+          const expanded = !collapsedGroups.has(g);
+          const header = document.createElement('button');
+          header.type = 'button';
           header.className = 'proj-group-header';
-          header.textContent = g;
+          header.setAttribute('aria-expanded', String(expanded));
+          const label = document.createElement('span');
+          label.textContent = g;
+          const chevron = document.createElement('span');
+          chevron.className = 'proj-group-chevron';
+          chevron.textContent = '▾';
+          chevron.setAttribute('aria-hidden', 'true');
+          header.append(label, chevron);
+          header.addEventListener('click', () => {
+            if (collapsedGroups.has(g)) collapsedGroups.delete(g);
+            else collapsedGroups.add(g);
+            renderIndex();
+          });
           indexEl.appendChild(header);
           lastGroup = g;
         }
       }
+
+      if (showGroups && collapsedGroups.has(currentGroup)) return;
 
       const btn = document.createElement('button');
       btn.type = 'button';
