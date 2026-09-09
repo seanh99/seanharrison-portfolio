@@ -206,7 +206,7 @@ function projectPage(lang, project, prevProject, nextProject){
   const area = project.area || '';
   const description = project[`description_${lang}`] || '';
   const involvement = project[`involvement_${lang}`] || '';
-  const imagePrefix = '../'; // both /projects/ and /es/projects/ sit one level below their own root
+  const imagePrefix = lang === 'en' ? '../' : '../../'; // /projects/ sits one level below root; /es/projects/ sits two levels below root
 
   const imgs = listImages(project);
   const carouselImgs = imgs.map(img =>

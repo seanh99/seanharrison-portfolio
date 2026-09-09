@@ -45,6 +45,7 @@ for (const file of files){
 
   const before = fs.statSync(srcPath).size;
   await sharp(srcPath)
+    .rotate() // auto-orient using EXIF before resizing, then strip the tag by re-encoding
     .resize({ width: MAX_DIMENSION, height: MAX_DIMENSION, fit: 'inside', withoutEnlargement: true })
     .jpeg({ quality: JPEG_QUALITY, mozjpeg: true })
     .toFile(destPath);

@@ -238,6 +238,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function groupOf(p){
     if (p.developedAt === 'EFC Holdings') return 'EFC';
     if (p.developedAt === 'ID Construcciones') return 'ID';
+    if (p.developedAt === 'Cordogan Clark & Associates') return 'Cordogan Clark';
+    if (p.developedAt === 'Beriot+Bernardini Arquitectos') return 'Beriot+Bernardini';
     return I18N.independentGroup;
   }
 
