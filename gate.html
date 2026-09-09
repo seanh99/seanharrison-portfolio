@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Access – Sean Harrison</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="password-gate" id="passwordGate" style="position:fixed;">
+  <form class="gate-form" id="gateForm">
+    <p class="gate-logo">SEAN HARRISON</p>
+    <label class="eyebrow gate-label" for="gatePassword">Portfolio Access</label>
+    <input type="password" id="gatePassword" class="gate-input" autocomplete="current-password" required>
+    <button type="button" class="gate-toggle" id="gateToggle">Show password</button>
+    <button type="submit" class="link-arrow gate-submit">Enter</button>
+    <p class="gate-error" id="gateError" hidden>Incorrect password. Please try again.</p>
+    <a class="gate-request" href="mailto:seanharrison.coelho@gmail.com?subject=Portfolio%20Access%20Request&body=Hi%20Sean%2C%0A%0AI%27d%20like%20to%20request%20access%20to%20your%20portfolio.%0A%0AName%3A%20%0AHow%20I%20found%20you%3A%20">Don't have a password? Request access</a>
+  </form>
+</div>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  const next = params.get('next') || '/';
+  const form = document.getElementById('gateForm');
+  const input = document.getElementById('gatePassword');
+  const error = document.getElementById('gateError');
+  const toggle = document.getElementById('gateToggle');
+  const submitBtn = form.querySelector('.gate-submit');
+
+  toggle.addEventListener('click', () => {
+    const showing = input.type === 'text';
+    input.type = showing ? 'password' : 'text';
+    toggle.textContent = showing ? 'Show password' : 'Hide password';
+    input.focus({ preventScroll: true });
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    error.hidden = true;
+    submitBtn.disabled = true;
+    try {
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: input.value, next }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        location.href = data.next || '/';
+      } else {
+        error.hidden = false;
+        submitBtn.disabled = false;
+      }
+    } catch (err) {
+      error.hidden = false;
+      submitBtn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>

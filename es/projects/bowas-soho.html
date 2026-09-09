@@ -12,18 +12,6 @@
 </head>
 <body>
 
-<div class="password-gate" id="passwordGate">
-  <form class="gate-form" id="gateForm">
-    <p class="gate-logo">SEAN HARRISON</p>
-    <label class="eyebrow gate-label" for="gatePassword">Acceso al portfolio</label>
-    <input type="password" id="gatePassword" class="gate-input" autocomplete="current-password" required>
-    <button type="button" class="gate-toggle" id="gateToggle">Mostrar contraseña</button>
-    <button type="submit" class="link-arrow gate-submit">Entrar</button>
-    <p class="gate-error" id="gateError">Contraseña incorrecta. Inténtalo de nuevo.</p>
-    <a class="gate-request" href="mailto:seanharrison.coelho@gmail.com?subject=Portfolio%20Access%20Request&body=Hi%20Sean%2C%0A%0AI%27d%20like%20to%20request%20access%20to%20your%20portfolio.%0A%0AName%3A%20%0AHow%20I%20found%20you%3A%20">Solicitar acceso</a>
-  </form>
-</div>
-
 <header class="site-header is-solid" id="siteHeader">
   <div class="header-inner">
     <a href="../index.html" class="logo-mark">
@@ -72,13 +60,14 @@
     <div class="project-info-grid">
       <div>
         <p class="project-title project-info-title">Bowas Soho</p>
-        <p>Bowas Soho es un producto residencial urbano para Palermo Soho, Buenos Aires, que combina una mezcla diversa de unidades, amenities compartidos y espacio comercial en planta baja.</p>
-        <p>Sean desarrolló Bowas Soho para un promotor residencial, cubriendo la definición del producto, los estudios de viabilidad y el concepto arquitectónico, en coordinación con el ingeniero estructural. Su trabajo se extendió al diseño de interiores y a la documentación de planeamiento municipal necesaria para su presentación en Buenos Aires, tras lo cual el proyecto fue continuado por equipos locales.</p>
+        <p>Bowas contrató directamente a Sean para estudiar el potencial de desarrollo de un terreno en Palermo Soho. Tras el estudio inicial de prefactibilidad, desarrolló de manera proactiva una propuesta arquitectónica que derivó en un encargo completo hasta la etapa de tramitación. Su trabajo abarcó definición de producto, distribuciones de viviendas, cortes y fachadas, coordinación estructural, estrategia material y la documentación necesaria para la presentación municipal. Posteriormente el proyecto fue transferido a un equipo local para su construcción. Aunque algunos elementos de fachada evolucionaron, el edificio mantuvo varios aspectos principales de la propuesta original, incluida la dirección material.</p>
       </div>
       <div class="project-meta-list">
-        <div class="meta-row">Palermo Soho, Buenos Aires</div>
+        <div class="meta-row meta-row--split"><span>Estado</span><span>En construcción, próximo a finalizar</span></div>
+        <div class="meta-row">Palermo Soho, Buenos Aires, Argentina</div>
         <div class="meta-row">Desarrollo residencial</div>
-        <div class="meta-row">Encargo independiente</div>
+        <div class="meta-row">Encargo directo de Bowas</div>
+        <div class="meta-row">Approx. 2,050 m²; approx. 25 residences plus commercial space and amenities</div>
       </div>
     </div>
   </div>
@@ -108,7 +97,7 @@
   </div>
   <div class="wrap footer-bottom">
     <span>&copy; 2026 Sean Harrison</span>
-    <a href="#" id="lockPortfolio" style="opacity:0.8;">Bloquear portfolio</a>
+    <a href="/api/logout" style="opacity:0.8;">Bloquear portfolio</a>
   </div>
 </footer>
 

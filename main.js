@@ -2,49 +2,9 @@
 // Sean Harrison — shared site behavior
 // ============================================================
 
-// Client-side password gate. Not real security — this is a soft gate to
-// keep casual visitors out of a private preview, not to protect sensitive
-// data (the password is readable in this file's source).
-const SITE_PASSWORD = 'welcome';
-const GATE_STORAGE_KEY = 'sh_site_unlocked';
-
-(function initGate(){
-  const gate = document.getElementById('passwordGate');
-  if (!gate) return;
-
-  if (sessionStorage.getItem(GATE_STORAGE_KEY) === '1'){
-    gate.remove();
-    return;
-  }
-
-  document.documentElement.style.overflow = 'hidden';
-  const form = document.getElementById('gateForm');
-  const input = document.getElementById('gatePassword');
-  const error = document.getElementById('gateError');
-  const toggle = document.getElementById('gateToggle');
-
-  if (toggle){
-    toggle.addEventListener('click', () => {
-      const showing = input.type === 'text';
-      input.type = showing ? 'password' : 'text';
-      toggle.textContent = showing ? 'Show password' : 'Hide password';
-      input.focus({ preventScroll: true });
-    });
-  }
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (input.value.trim().toLowerCase() === SITE_PASSWORD){
-      sessionStorage.setItem(GATE_STORAGE_KEY, '1');
-      document.documentElement.style.overflow = '';
-      gate.remove();
-    } else {
-      error.classList.add('is-visible');
-      input.value = '';
-      input.focus();
-    }
-  });
-})();
+// Access is now gated server-side by middleware.js + api/login.js (see
+// gate.html) — a visitor can no longer reach this script, or any page
+// content, without a valid auth cookie. Nothing password-related runs here.
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -138,16 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (captionIndex) captionIndex.textContent = `${String(i + 1).padStart(2,'0')} / ${String(total).padStart(2,'0')}`;
     if (captionTitle) captionTitle.textContent = slides[i].dataset.caption || '';
-  }
-
-  /* ---------- Lock portfolio (clear session, show gate again) ---------- */
-  const lockLink = document.getElementById('lockPortfolio');
-  if (lockLink){
-    lockLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      sessionStorage.removeItem(GATE_STORAGE_KEY);
-      window.location.reload();
-    });
   }
 
   /* ---------- Plans overlay ---------- */

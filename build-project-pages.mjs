@@ -54,14 +54,14 @@ const HERO_CURATION = [
   'assets/images/tramuntana/04-road-into-property-c.jpg',
   'assets/images/serrano-heights/02-entrance-c.jpg',
   'assets/images/serrano-heights/06-living-room.jpg',
-  'assets/images/alcala-apartment/03-living-room-alt-c.jpg',
-  'assets/images/canoa-15/01-front-exterior-c.jpg',
-  'assets/images/corales-80/01-exterior-entrance-c.jpg',
+  'assets/images/casa-porreres/01-salon-render-c.jpg',
+  'assets/images/corales-80/02-pool-terrace-render.jpg',
   'assets/images/ramsay-1850/01-street-facade.jpg',
+  'assets/images/ramsay-1850/03-aerial-rooftop.jpg',
+  'assets/images/casa-porreres/02-living-room-render.jpg',
+  'assets/images/canoa-15/01-front-exterior-c.jpg',
   'assets/images/casa-jungla/01-aerial-distant-c.jpg',
   'assets/images/humlebaek-house/01-exterior-street-c.jpg',
-  'assets/images/caledonian-road-apartment/01-living-room-c.jpg',
-  'assets/images/puertos-del-lago-i/01-night-exterior-c.jpg',
 ];
 
 const UI = {
@@ -141,19 +141,7 @@ const HEAD_FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com">
 // altHref: relative href to the equivalent page in the other language
 function gateAndHeader(lang, prefix, active, altHref){
   const t = UI[lang];
-  return `<div class="password-gate" id="passwordGate">
-  <form class="gate-form" id="gateForm">
-    <p class="gate-logo">${t.logo}</p>
-    <label class="eyebrow gate-label" for="gatePassword">${t.gateLabel}</label>
-    <input type="password" id="gatePassword" class="gate-input" autocomplete="current-password" required>
-    <button type="button" class="gate-toggle" id="gateToggle">${t.showPw}</button>
-    <button type="submit" class="link-arrow gate-submit">${t.enter}</button>
-    <p class="gate-error" id="gateError">${t.gateError}</p>
-    <a class="gate-request" href="mailto:seanharrison.coelho@gmail.com?subject=Portfolio%20Access%20Request&body=Hi%20Sean%2C%0A%0AI%27d%20like%20to%20request%20access%20to%20your%20portfolio.%0A%0AName%3A%20%0AHow%20I%20found%20you%3A%20">${t.requestAccess}</a>
-  </form>
-</div>
-
-<header class="site-header is-solid" id="siteHeader">
+  return `<header class="site-header is-solid" id="siteHeader">
   <div class="header-inner">
     <a href="${prefix}index.html" class="logo-mark">
       <span class="logo-name">${t.logo}</span>
@@ -203,7 +191,7 @@ function footer(lang, prefix){
   </div>
   <div class="wrap footer-bottom">
     <span>&copy; 2026 Sean Harrison</span>
-    <a href="#" id="lockPortfolio" style="opacity:0.8;">${t.lockPortfolio}</a>
+    <a href="/api/logout" style="opacity:0.8;">${t.lockPortfolio}</a>
   </div>
 </footer>`;
 }

@@ -12,18 +12,6 @@
 </head>
 <body>
 
-<div class="password-gate" id="passwordGate">
-  <form class="gate-form" id="gateForm">
-    <p class="gate-logo">SEAN HARRISON</p>
-    <label class="eyebrow gate-label" for="gatePassword">Acceso al portfolio</label>
-    <input type="password" id="gatePassword" class="gate-input" autocomplete="current-password" required>
-    <button type="button" class="gate-toggle" id="gateToggle">Mostrar contraseña</button>
-    <button type="submit" class="link-arrow gate-submit">Entrar</button>
-    <p class="gate-error" id="gateError">Contraseña incorrecta. Inténtalo de nuevo.</p>
-    <a class="gate-request" href="mailto:seanharrison.coelho@gmail.com?subject=Portfolio%20Access%20Request&body=Hi%20Sean%2C%0A%0AI%27d%20like%20to%20request%20access%20to%20your%20portfolio.%0A%0AName%3A%20%0AHow%20I%20found%20you%3A%20">Solicitar acceso</a>
-  </form>
-</div>
-
 <header class="site-header is-solid" id="siteHeader">
   <div class="header-inner">
     <a href="../index.html" class="logo-mark">
@@ -102,7 +90,7 @@
   </div>
   <div class="wrap footer-bottom">
     <span>&copy; 2026 Sean Harrison</span>
-    <a href="#" id="lockPortfolio" style="opacity:0.8;">Bloquear portfolio</a>
+    <a href="/api/logout" style="opacity:0.8;">Bloquear portfolio</a>
   </div>
 </footer>
 

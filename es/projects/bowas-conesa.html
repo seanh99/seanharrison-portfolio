@@ -12,18 +12,6 @@
 </head>
 <body>
 
-<div class="password-gate" id="passwordGate">
-  <form class="gate-form" id="gateForm">
-    <p class="gate-logo">SEAN HARRISON</p>
-    <label class="eyebrow gate-label" for="gatePassword">Acceso al portfolio</label>
-    <input type="password" id="gatePassword" class="gate-input" autocomplete="current-password" required>
-    <button type="button" class="gate-toggle" id="gateToggle">Mostrar contraseña</button>
-    <button type="submit" class="link-arrow gate-submit">Entrar</button>
-    <p class="gate-error" id="gateError">Contraseña incorrecta. Inténtalo de nuevo.</p>
-    <a class="gate-request" href="mailto:seanharrison.coelho@gmail.com?subject=Portfolio%20Access%20Request&body=Hi%20Sean%2C%0A%0AI%27d%20like%20to%20request%20access%20to%20your%20portfolio.%0A%0AName%3A%20%0AHow%20I%20found%20you%3A%20">Solicitar acceso</a>
-  </form>
-</div>
-
 <header class="site-header is-solid" id="siteHeader">
   <div class="header-inner">
     <a href="../index.html" class="logo-mark">
@@ -69,13 +57,14 @@
     <div class="project-info-grid">
       <div>
         <p class="project-title project-info-title">Bowas Conesa</p>
-        <p>Bowas Conesa es el primer desarrollo residencial de Bowas en Colegiales, que traduce un lote de esquina de baja altura en un producto residencial diferenciado.</p>
-        <p>Al igual que en Bowas Soho, el trabajo de Sean en Bowas Conesa cubrió la definición del producto, los estudios de viabilidad y el concepto arquitectónico en coordinación con el ingeniero estructural, extendiéndose al diseño de interiores y a la documentación de planeamiento municipal antes de que el proyecto continuara con equipos locales.</p>
+        <p>Tras el estudio de prefactibilidad de un segundo terreno de Bowas en Colegiales, Sean desarrolló el concepto arquitectónico y la estrategia de producto residencial hasta la presentación municipal. Su trabajo incluyó distribuciones de viviendas, espacios comunes, cortes y fachadas, coordinación estructural, estrategia de fachada y materiales, y la documentación necesaria para la aprobación municipal. Posteriormente el proyecto fue transferido a un equipo local para su construcción. La fachada fue ajustada durante las etapas posteriores, aunque el concepto material y la dirección arquitectónica general se mantuvieron próximos a la propuesta original.</p>
       </div>
       <div class="project-meta-list">
-        <div class="meta-row">Colegiales, Buenos Aires</div>
+        <div class="meta-row meta-row--split"><span>Estado</span><span>En construcción</span></div>
+        <div class="meta-row">Colegiales, Buenos Aires, Argentina</div>
         <div class="meta-row">Desarrollo residencial</div>
-        <div class="meta-row">Encargo independiente</div>
+        <div class="meta-row">Encargo directo de Bowas</div>
+        <div class="meta-row">Approx. 1,990 m²; approx. 23 residences</div>
       </div>
     </div>
   </div>
@@ -83,7 +72,7 @@
   <nav class="project-nav wrap">
     <a href="bowas-soho.html">Anterior: Bowas Soho</a>
     <a href="../work.html" class="nav-center">Índice de proyectos</a>
-    <a href="maribor-country-house.html">Siguiente: Maribor Country House</a>
+    <a href="buenbit-offices.html">Siguiente: BuenBit Offices</a>
   </nav>
 </main>
 
@@ -105,7 +94,7 @@
   </div>
   <div class="wrap footer-bottom">
     <span>&copy; 2026 Sean Harrison</span>
-    <a href="#" id="lockPortfolio" style="opacity:0.8;">Bloquear portfolio</a>
+    <a href="/api/logout" style="opacity:0.8;">Bloquear portfolio</a>
   </div>
 </footer>
 
