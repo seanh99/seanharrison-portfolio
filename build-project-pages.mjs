@@ -247,6 +247,7 @@ function projectPage(lang, project, prevProject, nextProject){
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 ${HEAD_FONTS}
 <link rel="stylesheet" href="${imagePrefix}styles.css">
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
