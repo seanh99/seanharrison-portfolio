@@ -17,7 +17,7 @@ export default function handler(req, res) {
 
   const submitted = typeof body.password === 'string' ? body.password.trim().toLowerCase() : '';
   if (submitted && submitted === expected.trim().toLowerCase()) {
-    const maxAge = 60 * 60 * 24 * 30; // 30 days
+    const maxAge = 60 * 60 * 24; // 1 day
     res.setHeader('Set-Cookie', `sh_auth=1; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${maxAge}`);
     const next = typeof body.next === 'string' && body.next.startsWith('/') ? body.next : '/';
     res.status(200).json({ ok: true, next });
