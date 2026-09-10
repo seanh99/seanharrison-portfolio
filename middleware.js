@@ -5,7 +5,7 @@
 // previous client-side gate, whose password was readable in main.js and
 // did nothing to stop someone opening a project page URL directly.
 export const config = {
-  matcher: ['/((?!api/|assets/|gate.html|styles.css|main.js|projects.js|favicon.ico|robots.txt).*)'],
+  matcher: ['/((?!api/|assets/|gate.html|styles.css|main.js|projects.js|favicon.ico|favicon-16.png|favicon-32.png|favicon-192.png|favicon-512.png|apple-touch-icon.png|robots.txt).*)'],
 };
 
 export default function middleware(request) {
