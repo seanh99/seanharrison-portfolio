@@ -364,4 +364,23 @@ document.addEventListener('DOMContentLoaded', () => {
   renderIndex();
   renderMainImage();
   renderInfo();
+
+  // Preload every project's cover image in the background once the page
+  // is idle. Without this, hovering quickly down the list triggers a
+  // fresh, uncached image request per project, and the resulting decode
+  // jank/flicker can read as the whole stage "shaking" or briefly
+  // showing the wrong project while an older request is still resolving.
+  function preloadHeroImages(){
+    const seen = new Set();
+    PROJECTS.forEach(p => {
+      if (!p.hero || seen.has(p.hero)) return;
+      seen.add(p.hero);
+      const img = new Image();
+      img.src = p.hero;
+    });
+  }
+  if (!isMobile()){
+    if ('requestIdleCallback' in window) requestIdleCallback(preloadHeroImages, { timeout: 3000 });
+    else setTimeout(preloadHeroImages, 500);
+  }
 });
