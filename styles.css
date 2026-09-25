@@ -417,7 +417,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
 
 /* ---------------- Profile page ---------------- */
 .profile-grid{ display:grid; grid-template-columns:0.85fr 1.1fr; gap:clamp(2rem,5vw,5rem); align-items:start; }
-.profile-grid img{ width:100%; height:auto; object-fit:cover; aspect-ratio:2/3; max-height:75vh; }
+.profile-grid img{ width:100%; height:auto; object-fit:cover; aspect-ratio:7/8; max-height:75vh; }
 .profile-copy p{ font-family:'EB Garamond', serif; font-size:1.15rem; line-height:1.85; margin-bottom:1.4rem; color:var(--charcoal); max-width:58ch; }
 .profile-portrait-note{ font-size:0.68rem; letter-spacing:0.05em; color:var(--clay); margin-top:0.75rem; }
 
