@@ -431,6 +431,10 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
   display:grid; grid-template-columns:minmax(0,30%) minmax(0,1fr);
   gap:clamp(1.25rem,4vw,3.5rem); align-items:start;
 }
+/* Drop the portrait by the height of the ABOUT label and its margin, so its
+   top edge sits on the first line of the introduction rather than on the
+   label. Derived from the label's own type so the two stay in step. */
+.profile-portrait{ margin-top:calc(0.72rem * 1.5 + 1.4rem); }
 .profile-grid img{ width:100%; height:auto; aspect-ratio:7/8; object-fit:cover; }
 .profile-eyebrow{ display:block; margin:0 0 1.4rem; color:var(--clay-deep); }
 .profile-copy p{
@@ -507,7 +511,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
 
 @media (max-width:860px){
   .profile-grid{ grid-template-columns:1fr; }
-  .profile-portrait{ max-width:340px; }
+  /* Stacked: the portrait leads the block, so no label to align to. */
+  .profile-portrait{ max-width:340px; margin-top:0; }
   .cv-entry{ grid-template-columns:1fr; gap:1.1rem; }
   .cv-meta{ display:grid; gap:0; }
 }
