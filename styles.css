@@ -417,7 +417,10 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
 .plans-tabs button.is-active{ opacity:1; border-color:var(--clay); }
 
 /* ---------------- Profile page ---------------- */
-.profile-main{ padding-top:calc(88px + 3.5rem); padding-bottom:6rem; }
+/* One shared reading measure for every text column on this page, so the
+   About copy, the experience paragraphs and the bullet lists all end on
+   the same vertical line. */
+.profile-main{ --measure:39rem; padding-top:calc(88px + 3.5rem); padding-bottom:6rem; }
 
 /* Opening: portrait + two-paragraph introduction. Columns and gap match
    .cv-entry exactly so the About copy starts on the same vertical line as
@@ -432,7 +435,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
 .profile-eyebrow{ display:block; margin:0 0 1.4rem; color:var(--clay-deep); }
 .profile-copy p{
   font-family:'EB Garamond', serif; font-size:1.15rem; line-height:1.8;
-  margin:0 0 1.4rem; color:var(--charcoal); max-width:54ch;
+  margin:0 0 1.4rem; color:var(--charcoal); max-width:var(--measure);
 }
 .profile-copy p:last-child{ margin-bottom:0; }
 
@@ -470,9 +473,9 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
 .cv-role + .cv-detail{ margin-top:0.7rem; }
 .cv-detail + .cv-detail{ margin-top:0.15rem; }
 
-.cv-body p{ font-size:0.95rem; line-height:1.75; color:var(--graphite); margin:0; max-width:68ch; }
+.cv-body p{ font-size:0.95rem; line-height:1.75; color:var(--graphite); margin:0; max-width:var(--measure); }
 .cv-body .cv-body-next{ margin-top:1rem; }
-.cv-body ul{ list-style:none; margin:1.1rem 0 0; padding:0; max-width:68ch; }
+.cv-body ul{ list-style:none; margin:1.1rem 0 0; padding:0; max-width:var(--measure); }
 .cv-body li{
   position:relative; padding-left:1.15rem; margin-bottom:0.6rem;
   font-size:0.9rem; line-height:1.7; color:var(--graphite);
