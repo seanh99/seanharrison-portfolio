@@ -419,14 +419,15 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
 /* ---------------- Profile page ---------------- */
 .profile-main{ padding-top:calc(88px + 3.5rem); padding-bottom:6rem; }
 
-/* Opening: portrait + two-paragraph introduction. The portrait is sized by
-   width (not max-height) so it always renders at its intrinsic 7:8 and the
-   frame never crops the face or hands. */
+/* Opening: portrait + two-paragraph introduction. Columns and gap match
+   .cv-entry exactly so the About copy starts on the same vertical line as
+   every experience description below it. The portrait is sized by width
+   (not max-height) so it renders at its intrinsic 7:8 and the frame never
+   crops the face or hands. */
 .profile-grid{
-  display:grid; grid-template-columns:minmax(0,420px) minmax(0,1fr);
-  gap:clamp(2rem,5vw,4.5rem); align-items:start; max-width:1080px;
+  display:grid; grid-template-columns:minmax(0,30%) minmax(0,1fr);
+  gap:clamp(1.25rem,4vw,3.5rem); align-items:start;
 }
-.profile-portrait{ max-width:420px; }
 .profile-grid img{ width:100%; height:auto; aspect-ratio:7/8; object-fit:cover; }
 .profile-eyebrow{ display:block; margin:0 0 1.4rem; color:var(--clay-deep); }
 .profile-copy p{
@@ -444,6 +445,9 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
   font-family:'Work Sans', sans-serif; font-size:0.68rem; font-weight:500;
   letter-spacing:0.12em; text-transform:uppercase; color:var(--clay-deep);
   margin:0 0 clamp(1.75rem,3.5vw,2.5rem);
+  /* Longer labels wrap onto a second line on narrow screens rather than
+     shrinking; the extra leading keeps the letterspaced caps readable. */
+  line-height:1.65; text-wrap:balance;
 }
 
 .cv-entry{
@@ -489,7 +493,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
 .cv-secondary{
   margin-top:clamp(3.5rem,7vw,5.5rem); padding-top:clamp(2.25rem,4.5vw,3rem);
   border-top:1px solid var(--hairline-color);
-  display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(2rem,5vw,4rem);
+  display:grid; grid-template-columns:minmax(0,45fr) minmax(0,20fr) minmax(0,35fr);
+  gap:clamp(2rem,4vw,3.5rem);
 }
 .cv-list{ list-style:none; margin:0; padding:0; }
 .cv-list li{ font-size:0.9rem; line-height:1.6; color:var(--charcoal); margin-bottom:0.95rem; }
@@ -503,11 +508,15 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
   .cv-entry{ grid-template-columns:1fr; gap:1.1rem; }
   .cv-meta{ display:grid; gap:0; }
 }
+/* Below this the three columns leave the software lists too narrow,
+   so they stack in order: Education, Languages, Software. */
+@media (max-width:760px){
+  .cv-secondary{ grid-template-columns:1fr; gap:2.75rem; }
+}
 @media (max-width:560px){
   .profile-main{ padding-top:calc(88px + 2.5rem); padding-bottom:4.5rem; }
   .profile-portrait{ max-width:100%; }
   .profile-copy p{ font-size:1.08rem; }
-  .cv-secondary{ grid-template-columns:1fr; gap:2.75rem; }
   .cv-earlier{ grid-template-columns:1fr; gap:1.1rem; }
 }
 
